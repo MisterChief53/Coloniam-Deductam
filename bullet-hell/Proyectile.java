@@ -52,4 +52,5 @@ public class Proyectile extends Actor
         // put your code here
         return x + y;
     }
+    
 }

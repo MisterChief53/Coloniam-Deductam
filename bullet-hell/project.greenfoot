@@ -1,12 +1,13 @@
 #Greenfoot project file
 class.Proyectile.image=red-draught.png
+class.Spawner.image=red-draught-king.png
 class.player.image=blue-draught.png
 dependency1.from=Spawner
 dependency1.to=Proyectile
 dependency1.type=UsesDependency
 editor.fx.0.height=962
 editor.fx.0.width=948
-editor.fx.0.x=8
+editor.fx.0.x=964
 editor.fx.0.y=40
 height=962
 package.numDependencies=1

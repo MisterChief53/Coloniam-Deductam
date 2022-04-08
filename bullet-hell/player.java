@@ -11,12 +11,19 @@ public class player extends Actor
 {
     int cont=0;
     int speed;
+    private int numSpawners = 2;
+    Spawner[] spawners = new Spawner[2];
     /**
      * Act - do whatever the player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public player(){
         speed=5;
+        /*
+        for(int i = 0; i < this.numSpawners; i++){
+            //spawners[i] = new Spawner(5);
+            //world.addObject(new Spawner(5), getX()+1, getY()+i);
+        }*/
     }
     public int getSpeed(){
         return speed;
@@ -30,6 +37,7 @@ public class player extends Actor
             cont++;
         }
         movement();
+        //shoot();
        
        // checkOutOfBonds();
         /*
@@ -54,6 +62,15 @@ public class player extends Actor
          setLocation(x,getY()); */
          
     }
+    /*
+    public void shoot(){
+        if(Greenfoot.isKeyDown("space")){
+            for(int i = 0; i < this.numSpawners; i++){
+                spawners[i].spawn(0,5);
+            }
+        }
+    }
+    */
     public void movement(){
         int x=getX();
         int y=getY();
