@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Proyectile
+comment0.text=\n\ Write\ a\ description\ of\ class\ Proyectile\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=direction\ speed
+comment1.target=Proyectile(double,\ int)
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Proyectile\n
+comment2.params=
+comment2.target=void\ movement()
+comment3.params=x\ y
+comment3.target=void\ move(int,\ int)
+comment4.params=
+comment4.target=void\ act()
+comment5.params=y
+comment5.target=int\ sampleMethod(int)
+comment5.text=\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\n\ \n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \n
+numComments=6
