@@ -17,13 +17,14 @@ public class Spawner extends Actor
     private int xOffset;
     private int entityX;
     private int entityY;
-    private int anchorType;
+    private int anchorType; //0 for player, 1 for enemy
+    private int spawnerType; // 0 for player, 1 for enemy
 
     /**
      * Constructor for objects of class Spawner
      */
     public Spawner(int spawnRate, int xOffset, int yOffset, int anchorType, int entityX,
-        int entityY, int speed, double direction)
+        int entityY, int speed, double direction, int spawnerType)
     {
         this.spawnRate = spawnRate;
         this.xOffset = xOffset;
@@ -33,24 +34,37 @@ public class Spawner extends Actor
         this.anchorType = anchorType;
         this.speed = speed;
         this.direction = direction;
+        this.spawnerType = spawnerType;
     }
     
     public void spawn(double direction, int speed){
         World world = getWorld();
-        world.addObject(new Proyectile(direction, speed), getX()+1, getY()+2);
+        if(this.spawnerType == 0){
+            world.addObject(new Proyectile(direction, speed, 0), getX()+1, getY()+2);
+        }else{
+            world.addObject(new Proyectile(direction, speed, 1), getX()+1, getY()+2);
+        }
     }
     
     public void act(){
-        //move();
+        checkRemove();
         anchor();
-        if(Greenfoot.isKeyDown("space") && anchorType == 0){
+        if(Greenfoot.isKeyDown("space") && this.anchorType == 0){
             this.counter++;
-            if (this.counter > this.spawnRate /*Greenfoot.getRandomNumber(1000) < 100*/)
+            if (this.counter > this.spawnRate)
             {
                 spawn(this.direction, this.speed);
                 counter = 0;
-                // do something
             }
+        }
+    }
+    
+    public void shoot(){
+        this.counter++;
+        if (this.counter > this.spawnRate)
+        {
+            spawn(this.direction, this.speed);
+            counter = 0;
         }
     }
 
@@ -62,21 +76,27 @@ public class Spawner extends Actor
      */
     public int sampleMethod(int y)
     {
-        // put your code here
         return x + y;
     }
     
     public void anchor(){
-        int anchorX;
-        int anchorY;
-        
         if(this.anchorType == 0){
-            anchorX = ((player) getWorld().getObjects(player.class).get(0)).getX();
-            anchorY = ((player) getWorld().getObjects(player.class).get(0)).getY();
-            setLocation(anchorX - this.xOffset, anchorY - this.yOffset);
-        }/*else if(entity instanceof Enemy){
-            anchorX = ((Enemy) getWorld().getObjetsAt(entityX, entityY, Enemy.class).get(0)).getX();
-            anchorY = ((Enemy) getWorld().getObjetsAt(entityX, entityY, Enemy.class).get(0)).getY();
-        }*/
+            entityX = ((player) getWorld().getObjects(player.class).get(0)).getX();
+            entityY = ((player) getWorld().getObjects(player.class).get(0)).getY();
+            setLocation(entityX - this.xOffset, entityY - this.yOffset);
+        }else if(this.anchorType == 1){
+            entityX = ((Enemy) getWorld().getObjectsAt(entityX, entityY, Enemy.class).get(0)).getX();
+            entityY = ((Enemy) getWorld().getObjectsAt(entityX, entityY, Enemy.class).get(0)).getY();
+            setLocation(entityX - this.xOffset, entityY - this.yOffset);
+        }
     }
+    
+    public void checkRemove(){
+        World w = getWorld();
+        if(getY() > w.getHeight() + 30 || getX() > w.getWidth() + 30 
+            || getX() < (-30) || getY() < (-30) ){
+            w.removeObject(this);
+        }
+    }
+    
 }
