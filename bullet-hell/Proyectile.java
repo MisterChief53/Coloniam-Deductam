@@ -11,14 +11,16 @@ public class Proyectile extends Actor
     private int x;
     private double direction;
     private int speed;
+    private int proyectileType; // 0 for player, 1 for enemy
 
     /**
      * Constructor for objects of class Proyectile
      */
-    public Proyectile(double direction, int speed)
+    public Proyectile(double direction, int speed, int proyectileType)
     {
         this.direction = direction;
         this.speed = speed;
+        this.proyectileType = proyectileType;
     }
     
     public void movement(){
@@ -39,6 +41,8 @@ public class Proyectile extends Actor
     
     public void act(){
         movement();
+        checkCollisions();
+        checkRemove();
     }
 
     /**
@@ -51,6 +55,22 @@ public class Proyectile extends Actor
     {
         // put your code here
         return x + y;
+    }
+    
+    public void checkRemove(){
+        World w = getWorld();
+        if(getY() > w.getHeight() + 30 || getX() > w.getWidth() + 30 || getX() < (-30) || getY() < (-30) ){
+            w.removeObject(this);
+        }
+    }
+    
+    public void checkCollisions(){
+        Actor enemy = getOneIntersectingObject(Enemy.class);
+        if(enemy != null && this.proyectileType == 0){
+            World w = getWorld();
+            w.removeObject(enemy);
+            w.removeObject(this);
+        }
     }
     
 }
