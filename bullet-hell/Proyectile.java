@@ -1,76 +1,95 @@
 import greenfoot.*;
 /**
- * Write a description of class Proyectile here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+* Write a description of class Proyectile here.
+*
+* @author (your name)
+* @version (a version number or a date)
+*/
 public class Proyectile extends Actor
 {
-    // instance variables - replace the example below with your own
-    private int x;
-    private double direction;
-    private int speed;
-    private int proyectileType; // 0 for player, 1 for enemy
+// instance variables - replace the example below with your own
+private int x,dir,dir2;
+private double direction;
+private int speed;
+private int proyectileType; // 0 for player, 1 for enemy
 
-    /**
-     * Constructor for objects of class Proyectile
-     */
-    public Proyectile(double direction, int speed, int proyectileType)
-    {
-        this.direction = direction;
-        this.speed = speed;
-        this.proyectileType = proyectileType;
-    }
-    
-    public void movement(){
-        if(this.direction < 90){
-            move(this.speed, 0);
-        }else if(this.direction > 90 && this.direction <= 180){
-            move(0, this.speed);
-        }else if(this.direction > 180 && this.direction <= 270){
-            move(-this.speed, 0);
-        }else{
-            move(0, -this.speed);
-        }
-    }
-    
-    public void move(int x,int y){
-        setLocation(getX()+x,getY()+y);
-    }
-    
-    public void act(){
-        movement();
-        checkCollisions();
-        checkRemove();
-    }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
-    
-    public void checkRemove(){
-        World w = getWorld();
-        if(getY() > w.getHeight() + 30 || getX() > w.getWidth() + 30 || getX() < (-30) || getY() < (-30) ){
-            w.removeObject(this);
-        }
-    }
-    
-    public void checkCollisions(){
-        Actor enemy = getOneIntersectingObject(Enemy.class);
-        if(enemy != null && this.proyectileType == 0){
-            World w = getWorld();
-            w.removeObject(enemy);
-            w.removeObject(this);
-        }
-    }
-    
+
+/* public Proyectile(){
+speed=6;
+dir2=90;
+setRotation(dir2);
+}
+public Proyectile(int dir){
+speed=6;
+dir2=dir;
+setRotation(dir2);
+}*/
+/**
+* Constructor for objects of class Proyectile
+
+
+*/
+public Proyectile(double direction, int speed, int proyectileType)
+{
+this.direction = direction;
+this.speed = speed;
+this.proyectileType = proyectileType;
+}
+public void movement(){
+if(this.direction < 90){
+move(this.speed, 0);
+}else if(this.direction > 90 && this.direction <= 180){
+move(0, this.speed);
+}else if(this.direction > 180 && this.direction <= 270){
+move(-this.speed, 0);
+}else{
+move(0, -this.speed);
+}
+}
+
+public void move(int x,int y){
+setLocation(getX()+x,getY()+y);
+}
+
+public void act(){
+movement();
+// move(speed);
+checkCollisions();
+
+//checkRemove();
+}
+
+
+
+/**
+* An example of a method - replace this comment with your own
+*
+* @param y a sample parameter for a method
+* @return the sum of x and y
+*/
+public int sampleMethod(int y)
+{
+// put your code here
+return x + y;
+}
+
+public void checkRemove(){
+World w = getWorld();
+if(getY() > w.getHeight() + 30 || getX() > w.getWidth() + 30 || getX() < (-30) || getY() < (-30) ){
+w.removeObject(this);
+}
+}
+
+public void checkCollisions(){
+Actor enemy = getOneIntersectingObject(Enemy.class);
+if(enemy != null && this.proyectileType == 0){
+World w = getWorld();
+//w.removeObject(enemy);
+w.removeObject(this);
+}else{
+checkRemove();
+}
+}
+
 }
