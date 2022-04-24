@@ -12,16 +12,15 @@ public class player extends Entity
     int cont=0;
     int speed;
     private int numSpawners = 2;
-    Spawner[] spawners = new Spawner[2];
     /**
      * Act - do whatever the player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public player(){
-        speed=5;
+        this.speed=5;
     }
     public int getSpeed(){
-        return speed;
+        return this.speed;
     }
     public void act()
     {
@@ -35,45 +34,27 @@ public class player extends Entity
     public void movement(){
         int x=getX();
         int y=getY();
-        if(Greenfoot.isKeyDown("left")||Greenfoot.isKeyDown("a")){
-      
+        move(0,-3);
+        if(Greenfoot.isKeyDown("left") && x > 0 || Greenfoot.isKeyDown("a") && x > 0){
             move(-speed,0);
-           // move(-1);
+            // move(-1);
         }
-         if(Greenfoot.isKeyDown("right")||Greenfoot.isKeyDown("d")){
-           
-             move(speed,0);
-           // move(1);
+         if(Greenfoot.isKeyDown("right") && x < MyWorld.WIDTH || Greenfoot.isKeyDown("d") &&
+             x < MyWorld.WIDTH){
+            move(speed,0);
+            // move(1);
         }
-         if(Greenfoot.isKeyDown("up")||Greenfoot.isKeyDown("w")){
-      
-             move(0,-speed);
+         if(Greenfoot.isKeyDown("up") && y > 40 || Greenfoot.isKeyDown("w") && y > 40){
+            move(0,-speed);
         }
-        if(Greenfoot.isKeyDown("down")||Greenfoot.isKeyDown("s")){
-          
-            move(0,speed);
+        if(Greenfoot.isKeyDown("down") && y < MyWorld.HEIGHT || Greenfoot.isKeyDown("s") && 
+        y < MyWorld.HEIGHT){
+            move(0,speed+2);
         }
         if(Greenfoot.isKeyDown("shift")){
-          speed=1;  
+            speed=1;  
         }else{
             speed=5;
         }
-        while((Greenfoot.isKeyDown("left")||Greenfoot.isKeyDown("a"))&& isAtEdge() ){
-            setLocation(x+550,y);
-        }
-        while((Greenfoot.isKeyDown("right")||Greenfoot.isKeyDown("d"))&& isAtEdge()){
-            setLocation(50,y);
-        }
-        while((Greenfoot.isKeyDown("down")||Greenfoot.isKeyDown("s"))&& isAtEdge()){
-            setLocation(x,50);
-        }
-        while((Greenfoot.isKeyDown("up")||Greenfoot.isKeyDown("w"))&& isAtEdge()){
-            setLocation(x,y+500);
-        }
     }
-    
-    /*
-    public void move(int x,int y){
-        setLocation(getX()+x,getY()+y);
-    }*/
 }
