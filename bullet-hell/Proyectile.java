@@ -65,13 +65,8 @@ public class Proyectile extends Actor
     {
         movement();
     // move(speed);
-        checkCollisions();
-
-    //checkRemove();
+        //checkCollisions();
     }
-
-
-
     /**
     * An example of a method - replace this comment with your own
     *
@@ -80,32 +75,39 @@ public class Proyectile extends Actor
     */
     public int sampleMethod(int y)
     {
-    // put your code here
         return x + y;
     }
 
     public void checkRemove()
     {
         World w = getWorld();
-        if(getY() > w.getHeight() + 30 || getX() > w.getWidth() + 30 || getX() < (-30) || getY() < (-30) )
+        if(getY() > w.getHeight() + 30 || getX() > w.getWidth() + 30 || getX() < (-30) || 
+            getY() < (-30) )
         {
             w.removeObject(this);
         }
     }
-
+    //If we use this, the proyectiles are prematurely removed, so I use a method from
+    //Enemy class
+    /*
     public void checkCollisions()
     {
         Actor enemy = getOneIntersectingObject(Enemy.class);
         if(enemy != null && this.proyectileType == 0)
         {
             World w = getWorld();
-    //w.removeObject(enemy);
+            //w.removeObject(enemy);
             w.removeObject(this);
         }
         else
         {
             checkRemove();
         }
+    }
+    */
+    
+    public int getProjectileType(){
+        return this.proyectileType;
     }
 
 }

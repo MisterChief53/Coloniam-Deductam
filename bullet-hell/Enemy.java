@@ -25,15 +25,8 @@ public class Enemy extends Entity
     }
     public void act()
     {
-    // int cont=0;
-    // while(cont<50){
-    // attack();
-    // cont++;
-    //}
-
         movement();
         checkCollisions();
-    // checkRemove();
     }
     public void movement()
     {
@@ -63,15 +56,11 @@ public class Enemy extends Entity
     {
         this.speed = speed;
     }
-    //public void attack(){
-    // Proyectile p=new Proyectile();
-    // getWorld().addObject(p,getX(),getY());
-    // }
     public void checkRemove()
     {
         World w = getWorld();
-        if(getY() > w.getHeight() + 200 || getX() > w.getWidth() + 200 ||
-                getX() < (-200) || getY() < (-200) )
+        if(getY() > w.getHeight() + 50 || getX() > w.getWidth() + 50 ||
+                getX() < (-50) || getY() < (-50) )
         {
             w.removeObject(this);
         }
@@ -80,12 +69,11 @@ public class Enemy extends Entity
     public void checkCollisions()
     {
         Actor proyectile = getOneIntersectingObject(Proyectile.class);
-        if(proyectile != null)
+        if(proyectile != null && ((Proyectile) proyectile).getProjectileType() == 0)
         {
             World w = getWorld();
             w.removeObject(this);
-    //setLocation(35,35);
-    // checkRemove();
+            w.removeObject(proyectile);
         }
         else
         {
