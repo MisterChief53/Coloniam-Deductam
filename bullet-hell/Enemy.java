@@ -30,6 +30,7 @@ public class Enemy extends Entity
     }
     public void movement()
     {
+        move(0,-3);
         switch(this.direction)
         {
         case 'L':
