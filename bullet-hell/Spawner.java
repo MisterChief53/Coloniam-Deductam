@@ -39,9 +39,9 @@ public class Spawner extends Actor
     {
         World world = getWorld();
         if(this.spawnerType == 0){
-            world.addObject(new Proyectile(direction, speed, 0), getX()+1, getY()+2);
+            world.addObject(new Projectile(direction, speed, 0), getX()+1, getY()+2);
         }else{
-            world.addObject(new Proyectile(direction, speed, 1), getX()+1, getY()+2);
+            world.addObject(new Projectile(direction, speed, 1), getX()+1, getY()+2);
         }
     }
 
@@ -80,8 +80,8 @@ public class Spawner extends Actor
     public void anchor()
     {
         if(this.anchorType == 0 ){
-            entityX = ((player) getWorld().getObjects(player.class).get(0)).getX();
-            entityY = ((player) getWorld().getObjects(player.class).get(0)).getY();
+            entityX = ((Player) getWorld().getObjects(Player.class).get(0)).getX();
+            entityY = ((Player) getWorld().getObjects(Player.class).get(0)).getY();
             setLocation(entityX - this.xOffset, entityY - this.yOffset);
         }
         else if(this.anchorType == 1 && getOneObjectAtOffset(this.xOffset, this.yOffset,
