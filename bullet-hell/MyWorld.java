@@ -66,19 +66,19 @@ public class MyWorld extends World
         addObject(puntos,150,85);
         addObject(vidas,300,85);
         Player p = new Player();
-        Spawner playerGun1 = new Spawner(5, 20, 20, 0, 50, 50, 15, 360, 0);
-        Spawner playerGun2 = new Spawner(5, 0, 30, 0, 50, 50, 15, 360, 0);
-        Spawner playerGun3 = new Spawner(5, -20, 20, 0, 50, 50, 15, 360, 0);
+        Spawner playerGun1 = new Spawner(5, 20, 20, 0, 50, 50, 15, 270, 0);
+        Spawner playerGun2 = new Spawner(5, 0, 30, 0, 50, 50, 15, 270, 0);
+        Spawner playerGun3 = new Spawner(5, -20, 20, 0, 50, 50, 15, 270, 0);
         
         this.enemy1 = new Enemy('D',5);
-        this.enemy1Gun1 = new Spawner(5, 0, -20, 1, 100, 50, 5, 180, 1);
+        this.enemy1Gun1 = new Spawner(5, 0, -20, 1, 100, 50, 5, 90, 1);
         
         this.enemy2 = new Enemy('L', 3);
-        this.enemy2Gun1 = new Spawner(4, 0, -20, 1, 450, 50, 9, 180, 1);
-        this.enemy2Gun2 = new Spawner(4, 19, 0, 1, 450, 50, 9, 186, 1);
+        this.enemy2Gun1 = new Spawner(4, 0, -20, 1, 450, 50, 9, 90, 1);
+        this.enemy2Gun2 = new Spawner(4, 19, 0, 1, 450, 50, 9, 91, 1);
         
         this.enemy3 = new Enemy('L', 3);
-        this.enemy3Gun1 = new Spawner(4, 0, -20, 1, 500, 50, 9, 360, 1);
+        this.enemy3Gun1 = new Spawner(4, 0, -20, 1, 500, 50, 9, 91, 1);
         this.enemy3Gun2 = new Spawner(4, 19, 0, 1, 500, 50, 9, 90, 1);
         
         this.enemy4 = new Enemy('L', 3);
