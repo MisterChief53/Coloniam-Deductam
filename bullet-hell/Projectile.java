@@ -38,21 +38,22 @@ public class Projectile extends Actor
     }
     public void movement()
     {
-        if(this.direction < 90)
-        {
+        if(this.direction == 0){
             move(this.speed, 0);
-        }
-        else if(this.direction > 90 && this.direction <= 180)
-        {
+        }else if(this.direction > 0 && this.direction < 90){
+            move(this.speed, this.speed);
+        }else if(this.direction == 90){
             move(0, this.speed);
-        }
-        else if(this.direction > 180 && this.direction <= 270)
-        {
+        }else if(this.direction > 90 && this.direction < 180){
+            move(-this.speed, this.speed);
+        }else if(this.direction == 180){
             move(-this.speed, 0);
-        }
-        else
-        {
+        }else if(this.direction > 180 && this.direction < 270){
+            move(-this.speed, -this.speed);
+        }else if(this.direction == 270){
             move(0, -this.speed);
+        }else{
+            move(this.speed, -this.speed);
         }
     }
 
