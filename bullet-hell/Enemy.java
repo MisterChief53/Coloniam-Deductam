@@ -69,8 +69,8 @@ public class Enemy extends Entity
 
     public void checkCollisions()
     {
-        Actor proyectile = getOneIntersectingObject(Proyectile.class);
-        if(proyectile != null && ((Proyectile) proyectile).getProjectileType() == 0)
+        Actor proyectile = getOneIntersectingObject(Projectile.class);
+        if(proyectile != null && ((Projectile) proyectile).getProjectileType() == 0)
         {
             World w = getWorld();
             w.removeObject(this);

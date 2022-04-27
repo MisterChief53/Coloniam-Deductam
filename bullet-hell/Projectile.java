@@ -5,13 +5,13 @@ import greenfoot.*;
 * @author (your name)
 * @version (a version number or a date)
 */
-public class Proyectile extends Actor
+public class Projectile extends Actor
 {
     // instance variables - replace the example below with your own
     private int x,dir,dir2;
     private double direction;
     private int speed;
-    private int proyectileType; // 0 for player, 1 for enemy
+    private int projectileType; // 0 for player, 1 for enemy
 
 
 
@@ -30,11 +30,11 @@ public class Proyectile extends Actor
 
 
     */
-    public Proyectile(double direction, int speed, int proyectileType)
+    public Projectile(double direction, int speed, int proyectileType)
     {
         this.direction = direction;
         this.speed = speed;
-        this.proyectileType = proyectileType;
+        this.projectileType = proyectileType;
     }
     public void movement()
     {
@@ -107,7 +107,7 @@ public class Proyectile extends Actor
     */
     
     public int getProjectileType(){
-        return this.proyectileType;
+        return this.projectileType;
     }
 
 }

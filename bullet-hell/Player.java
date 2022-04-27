@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class player extends Entity
+public class Player extends Entity
 {
     int cont=0;
     int speed;
@@ -16,7 +16,7 @@ public class player extends Entity
      * Act - do whatever the player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public player(){
+    public Player(){
         this.speed=5;
     }
     public int getSpeed(){
