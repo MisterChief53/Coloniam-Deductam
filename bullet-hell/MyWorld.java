@@ -16,6 +16,7 @@ public class MyWorld extends World
     public static final int WIDTH = 600;
     public static final int HEIGHT = 600;
     private Scroller scroller;
+    private int cont=0;
     HUD vidas;
     HUD puntos;
     World toWorld = null; // holds world to return to
@@ -122,7 +123,10 @@ public class MyWorld extends World
             Greenfoot.setWorld(new Instructions(1, this)); // change to info world
         }
 
-        if (Greenfoot.mouseClicked(null)) Greenfoot.setWorld(toWorld);
+      //  if (Greenfoot.isKeyDown("enter") && cont==0){
+//           Greenfoot.setWorld(toWorld); // change to calling world when the mouse is clicked
+         //  cont++;
+     //   }
         scroll();
         this.counter++;
         if(counter == 100){

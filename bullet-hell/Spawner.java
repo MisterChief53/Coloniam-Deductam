@@ -78,8 +78,9 @@ public class Spawner extends Actor
     }
 
     public void anchor()
-    {
-        if(this.anchorType == 0 ){
+    {//
+            
+        if(this.anchorType == 0 && getOneObjectAtOffset(this.xOffset, this.yOffset,Player.class) != null){
             entityX = ((Player) getWorld().getObjects(Player.class).get(0)).getX();
             entityY = ((Player) getWorld().getObjects(Player.class).get(0)).getY();
             setLocation(entityX - this.xOffset, entityY - this.yOffset);

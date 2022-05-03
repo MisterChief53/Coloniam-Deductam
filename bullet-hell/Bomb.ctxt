@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Bomb
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Bomb\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=direction\ speed
+comment1.target=Bomb(double,\ int)
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Bomb\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=void\ movement()
+comment3.params=x\ y
+comment3.target=void\ move(int,\ int)
+comment4.params=
+comment4.target=void\ act()
+comment5.params=y
+comment5.target=int\ sampleMethod(int)
+numComments=6

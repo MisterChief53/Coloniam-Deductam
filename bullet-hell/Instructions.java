@@ -11,6 +11,7 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Instructions extends World
 {
     World toWorld=null;
+    int cont=0;
     /**
     * Constructor for objects of class Instructions.
     *
@@ -71,6 +72,9 @@ public class Instructions extends World
     }
     public void act()
     {
-        if (Greenfoot.mouseClicked(null)) Greenfoot.setWorld(toWorld); // change to calling world when the mouse is clicked
+        if (Greenfoot.mouseClicked(null) && cont==0){
+           
+           Greenfoot.setWorld(toWorld);
+        }
     }
 }

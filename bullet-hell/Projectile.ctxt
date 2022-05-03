@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Projectile
-comment0.text=\n\ Write\ a\ description\ of\ class\ Proyectile\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Toucher\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=direction\ speed\ proyectileType
 comment1.target=Projectile(double,\ int,\ int)
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Proyectile\n\n\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Proyectile\r\n\r\n\r\n
 comment2.params=
 comment2.target=void\ movement()
 comment3.params=x\ y
@@ -12,10 +12,10 @@ comment4.params=
 comment4.target=void\ act()
 comment5.params=y
 comment5.target=int\ sampleMethod(int)
-comment5.text=\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\n\n\ @param\ y\ a\ sample\ parameter\ for\ a\ method\n\ @return\ the\ sum\ of\ x\ and\ y\n
+comment5.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ y\ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ the\ sum\ of\ x\ and\ y\r\n
 comment6.params=
 comment6.target=void\ checkRemove()
 comment7.params=
 comment7.target=int\ getProjectileType()
-comment7.text=\n\ \ \ \ public\ void\ checkCollisions()\n\ \ \ \ {\n\ \ \ \ \ \ \ \ Actor\ enemy\ \=\ getOneIntersectingObject(Enemy.class);\n\ \ \ \ \ \ \ \ if(enemy\ \!\=\ null\ &&\ this.proyectileType\ \=\=\ 0)\n\ \ \ \ \ \ \ \ {\n\ \ \ \ \ \ \ \ \ \ \ \ World\ w\ \=\ getWorld();\n\ \ \ \ \ \ \ \ \ \ \ \ //w.removeObject(enemy);\n\ \ \ \ \ \ \ \ \ \ \ \ w.removeObject(this);\n\ \ \ \ \ \ \ \ }\n\ \ \ \ \ \ \ \ else\n\ \ \ \ \ \ \ \ {\n\ \ \ \ \ \ \ \ \ \ \ \ checkRemove();\n\ \ \ \ \ \ \ \ }\n\ \ \ \ }\n
+comment7.text=\r\n\ \ \ \ public\ void\ checkCollisions()\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ Actor\ enemy\ \=\ getOneIntersectingObject(Enemy.class);\r\n\ \ \ \ \ \ \ \ if(enemy\ \!\=\ null\ &&\ this.proyectileType\ \=\=\ 0)\r\n\ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ World\ w\ \=\ getWorld();\r\n\ \ \ \ \ \ \ \ \ \ \ \ //w.removeObject(enemy);\r\n\ \ \ \ \ \ \ \ \ \ \ \ w.removeObject(this);\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ else\r\n\ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ checkRemove();\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n
 numComments=8

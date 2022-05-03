@@ -1,10 +1,11 @@
-import greenfoot.*;
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 /**
-* Write a description of class Proyectile here.
-*
-* @author (your name)
-* @version (a version number or a date)
-*/
+ * Write a description of class Toucher here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
 public class Projectile extends Actor
 {
     // instance variables - replace the example below with your own
@@ -13,7 +14,7 @@ public class Projectile extends Actor
     private int speed;
     private int projectileType; // 0 for player, 1 for enemy
 
-
+    
 
     /* public Proyectile(){
     speed=6;
@@ -65,6 +66,7 @@ public class Projectile extends Actor
     public void act()
     {
         movement();
+        
     // move(speed);
         //checkCollisions();
     }
@@ -111,4 +113,11 @@ public class Projectile extends Actor
         return this.projectileType;
     }
 
+/*
+    public void act() 
+    {
+        List<Enemy> list_e_=getTouchedObjects(Enemy.class);
+        for(Enemy e_:list_e_)
+             getWorld().removeObject(this);
+    }    */
 }

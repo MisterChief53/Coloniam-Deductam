@@ -1,6 +1,7 @@
 
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
+import java.util.ArrayList;
 /**
  * Write a description of class player here.
  * 
@@ -9,9 +10,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Entity
 {
+      private double direction;
+    private int speed;
     int cont=0;
-    int speed;
-    private int numSpawners = 2;
+         private int timer = 4;
+    int c=0;
+   // int speed;
+    private int numSpawners = 3;
     /**
      * Act - do whatever the player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -28,7 +33,15 @@ public class Player extends Entity
             turn(-90);
             cont++;
         }
+        World world = getWorld();
+        if(Greenfoot.mouseClicked(null) && c<5){
+            world.addObject(new Bomb(270, 6), getX()+1, getY()+2);
+            c++;
+          
+        }
         movement();
+             
+        checkCollisions();
     }
     
     public void movement(){
@@ -57,4 +70,23 @@ public class Player extends Entity
             speed=5;
         }
     }
+      public void checkCollisions()
+    {
+        
+        Actor proyectile = getOneIntersectingObject(Projectile.class);
+        if(proyectile != null && ((Projectile) proyectile).getProjectileType() == 1)
+        {
+           // World w = getWorld();
+           // w.removeObject(this);
+           // w.removeObject(proyectile);
+            List<Projectile> list_e_=getTouchedObjects(Projectile.class);
+        for(Projectile e_:list_e_){
+           // World w = getWorld();
+            e_.getWorld().removeObject(this);
+           e_.getWorld().removeObject(proyectile);
+        }
+            
+    
+    }
+}
 }

@@ -1,5 +1,6 @@
 import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
+import java.util.ArrayList;
 
 
 /**
@@ -27,6 +28,8 @@ public class Enemy extends Entity
     {
         movement();
         checkCollisions();
+     
+         
     }
     public void movement()
     {
@@ -69,16 +72,30 @@ public class Enemy extends Entity
 
     public void checkCollisions()
     {
-        Actor proyectile = getOneIntersectingObject(Projectile.class);
-        if(proyectile != null && ((Projectile) proyectile).getProjectileType() == 0)
+        World w = getWorld();
+     Actor p=getOneIntersectingObject(Projectile.class);
+        //Actor proyectile = getOneIntersectingObject(Projectile.class);
+        if(p!=null && ((Projectile) p).getProjectileType() == 0){
+             List<Projectile> list_e_=getTouchedObjects(Projectile.class);
+        for(Projectile e_:list_e_){
+           // 
+            e_.getWorld().removeObject(this);
+           //e_.getWorld().removeObject();
+        }
+        }else if(getY() > w.getHeight() + 50 || getX() > w.getWidth() + 50 ||
+                getX() < (-50) || getY() < (-50) )
         {
-            World w = getWorld();
             w.removeObject(this);
-            w.removeObject(proyectile);
         }
-        else
-        {
-            checkRemove();
-        }
+      // {
+           // World w = getWorld();
+           // w.removeObject(this);
+           // w.removeObject(proyectile);
+       
+            
+        //}
+        
+        
+        
     }
 }
