@@ -67,9 +67,9 @@ public class MyWorld extends World
         addObject(puntos,150,85);
         addObject(vidas,300,85);
         Player p = new Player();
-        Spawner playerGun1 = new Spawner(5, 20, 20, 0, 50, 50, 15, 270, 0);
-        Spawner playerGun2 = new Spawner(5, 0, 30, 0, 50, 50, 15, 270, 0);
-        Spawner playerGun3 = new Spawner(5, -20, 20, 0, 50, 50, 15, 270, 0);
+        Spawner playerGun1 = new Spawner(5, 20, 10, 0, 50, 50, 15, 270, 0);
+        Spawner playerGun2 = new Spawner(5, 0, 20, 0, 50, 50, 15, 270, 0);
+        Spawner playerGun3 = new Spawner(5, -20, 10, 0, 50, 50, 15, 270, 0);
         
         this.enemy1 = new Enemy('D',5);
         this.enemy1Gun1 = new Spawner(5, 0, -20, 1, 100, 50, 5, 90, 1);
@@ -123,10 +123,10 @@ public class MyWorld extends World
             Greenfoot.setWorld(new Instructions(1, this)); // change to info world
         }
 
-      //  if (Greenfoot.isKeyDown("enter") && cont==0){
-//           Greenfoot.setWorld(toWorld); // change to calling world when the mouse is clicked
-         //  cont++;
-     //   }
+        //  if (Greenfoot.isKeyDown("enter") && cont==0){
+        //           Greenfoot.setWorld(toWorld); // change to calling world when the mouse is clicked
+        //  cont++;
+        //   }
         scroll();
         this.counter++;
         if(counter == 100){

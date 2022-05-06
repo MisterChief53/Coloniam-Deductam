@@ -8,12 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bomb extends Actor
 {
-     private int x,dir,dir2;
+    private int x,dir,dir2;
     private double direction;
     private int speed;
-     private int cont=0;
+    private int cont=0;
     private int timer = 25;
-GifImage gif = new GifImage("Explosion-unscreen.gif");
+    GifImage gif = new GifImage("Explosion-unscreen.gif");
 
 
     /**
@@ -21,14 +21,14 @@ GifImage gif = new GifImage("Explosion-unscreen.gif");
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Bomb(double direction, int speed){
-          int scalePercent = 50;
-    for (GreenfootImage image : gif.getImages())
-    {
-        int wide = image.getWidth()*scalePercent/400;
-        int high = image.getHeight()*scalePercent/400;
-        image.scale(wide, high);
-    }
-         this.direction = direction;
+        int scalePercent = 50;
+        for (GreenfootImage image : gif.getImages())
+        {
+            int wide = image.getWidth()*scalePercent/400;
+            int high = image.getHeight()*scalePercent/400;
+            image.scale(wide, high);
+        }
+        this.direction = direction;
         this.speed = speed;
     }
      public void movement()
@@ -58,16 +58,15 @@ GifImage gif = new GifImage("Explosion-unscreen.gif");
     public void act()
     {
         movement();
-           timer--;
-           
-    if (timer <= 10) {
-      setImage(gif.getCurrentImage());
-     // timer--;
-    }
-    if(timer<=0){
-      getWorld().removeObjects(getWorld().getObjects(Projectile.class));
-           getWorld().removeObject(this);   
-    }
+        timer--;
+        if (timer <= 10) {
+          setImage(gif.getCurrentImage());
+         // timer--;
+        }
+        if(timer<=0){
+          getWorld().removeObjects(getWorld().getObjects(Projectile.class));
+          getWorld().removeObject(this);   
+        }
         // Add your action code here.
     }
      public int sampleMethod(int y)
