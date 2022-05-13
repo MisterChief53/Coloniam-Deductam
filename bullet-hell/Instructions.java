@@ -20,17 +20,37 @@ public class Instructions extends World
     {
 // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1);
-        setMainImage();
+        
         switch(value)
         {
         case 0:
+            setMainImage2();
             imageOne();
+           // Greenfoot.stop();
             break;//pa despues
         case 1:
+            setMainImage();
             imageTwo();
             break;
         }
         toWorld=inWorld;
+    }
+      private void setMainImage2()
+    {
+// create the image for the background
+        GreenfootImage main = new GreenfootImage(getWidth(), getHeight());
+        main.setColor(Color.BLACK);
+        main.fill(); // set a flat black background
+// create images and draw them on the background
+        GreenfootImage img = new GreenfootImage("GAME OVER", 36, Color.YELLOW, Color.BLACK);
+        main.drawImage(img, (main.getWidth() - img.getWidth()) / 2, 50);
+        img = new GreenfootImage("(you are now in UNDERWORLD)", 18, Color.YELLOW, Color.BLACK);
+        main.drawImage(img, (main.getWidth() - img.getWidth()) / 2, 90);
+// draw separator lines on the background
+        main.setColor(Color.YELLOW);
+        main.drawLine(0, 125, 720, 125);
+        main.drawLine(0, 420, 720, 420);
+        setBackground(main); // set the background image
     }
     private void setMainImage()
     {
@@ -52,7 +72,17 @@ public class Instructions extends World
     private void imageOne()
     {
 // retrieve the background image
-
+// retrieve the background image
+        GreenfootImage main = getBackground();
+// create text images and draw them on the background
+        GreenfootImage img = new GreenfootImage("Oh, you died, well Good luck for the next one", 18, Color.YELLOW, Color.BLACK);
+        main.drawImage(img, (main.getWidth() - img.getWidth()) / 2, 200);
+        img = new GreenfootImage("You tried very hard", 18, Color.YELLOW, Color.BLACK);
+        main.drawImage(img, (main.getWidth() - img.getWidth()) / 2, 230);
+        img = new GreenfootImage("If you want return to HELL", 18, Color.YELLOW, Color.BLACK);
+        main.drawImage(img, (main.getWidth() - img.getWidth()) / 2, 440);
+        img = new GreenfootImage("Click anywhere to try again", 18, Color.YELLOW, Color.BLACK);
+        main.drawImage(img, (main.getWidth() - img.getWidth()) / 2, 470);
     }
     private void imageTwo()
     {
@@ -73,8 +103,13 @@ public class Instructions extends World
     public void act()
     {
         if (Greenfoot.mouseClicked(null) && cont==0){
-           
+           cont++;
            Greenfoot.setWorld(toWorld);
+        }
+          if (Greenfoot.mouseClicked(null) && cont!=0){
+           cont=0;
+           //Greenfoot.setWorld(toWorld);
+           Greenfoot.setWorld(new MyWorld());
         }
     }
 }

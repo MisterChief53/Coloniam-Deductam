@@ -10,10 +10,12 @@ import java.util.ArrayList;
  */
 public class Player extends Entity
 {
+    
       private double direction;
     private int speed;
     int cont=0;
-         private int timer = 4;
+         private int timer=15;
+         boolean x;
     int c=0;
    // int speed;
     private int numSpawners = 3;
@@ -42,6 +44,9 @@ public class Player extends Entity
         movement();
              
         checkCollisions();
+   
+      
+ 
     }
     
     public void movement(){
@@ -70,9 +75,24 @@ public class Player extends Entity
             speed=5;
         }
     }
+    public void Guts(boolean x,int r){ //metodo a revisar 
+    //    while(timer>0){
+            
+      //  }
+      MyWorld w=(MyWorld)getWorld();
+      //if(timer>0){
+        //   timer--;
+    // }
+
+        if(r==0 && x==true && timer<=0){
+             w.vidas.decrementar();
+             timer=280;
+        }
+    }
       public void checkCollisions()
     {
-        
+        //int r=0;
+        MyWorld w=(MyWorld)getWorld();
         Actor proyectile = getOneIntersectingObject(Projectile.class);
         if(proyectile != null && ((Projectile) proyectile).getProjectileType() == 1)
         {
@@ -80,13 +100,44 @@ public class Player extends Entity
            // w.removeObject(this);
            // w.removeObject(proyectile);
             List<Projectile> list_e_=getTouchedObjects(Projectile.class);
+         
+              timer--;
+          
+                
+         
         for(Projectile e_:list_e_){
            // World w = getWorld();
-            e_.getWorld().removeObject(this);
-           e_.getWorld().removeObject(proyectile);
-        }
             
+           // e_.getWorld().removeObject(this);
+           e_.getWorld().removeObject(proyectile);
+            //setLocation(getX()-10 , getY()-10);
+         //Greenfoot.setWorld(new MyWorld());
+                 
+                //do{
+            //  Guts(true,r);
+             // r++;
+            //}while (timer>0);
+              //  timer=15;
+            if(timer<=0){
+                  w.vidas.decrementar();
+                  timer=15;
+                }  
+              
+           // }
+            
+        }
+         if(w.vidas.valor()<=0){
+           
+             Greenfoot.setWorld(new Instructions(0, w));
+             
+        }
+      
+           
     
     }
+   
+     //r=0;
+     //timer=0;
+       
 }
 }
