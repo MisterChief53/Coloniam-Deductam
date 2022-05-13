@@ -16,6 +16,7 @@ public class HUD extends Actor
     */
     GreenfootImage imagen;
     int cont;
+    int contP;
     String mensaje;
     public void setLocation(int x, int y) {}
     public HUD(int c,String msj)
@@ -39,6 +40,13 @@ public class HUD extends Actor
         imagen.drawString(" "+mensaje +": " +cont,20,20);
         setImage(imagen);
     }
+    public void dibuja1()
+    {
+// Add your action code here.
+        imagen.clear();
+        imagen.drawString(" "+mensaje +": " +contP,20,20);
+        setImage(imagen);
+    }
     public void incrementar()
     {
         cont++;
@@ -52,5 +60,12 @@ public class HUD extends Actor
     public int valor()
     {
         return cont;
+    }
+    public void incPoints(){
+        contP+=10;
+        dibuja1();
+    }
+    public int Points(){
+        return contP;
     }
 }

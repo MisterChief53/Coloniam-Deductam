@@ -54,6 +54,8 @@ public class MyWorld extends World
     * Constructor for objects of class MyWorld.
     *
     */
+ 
+   
     public MyWorld()
     {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -61,11 +63,10 @@ public class MyWorld extends World
         World world=this;
         GreenfootImage image=new GreenfootImage("fondo1.png");
         scroller=new Scroller(this,image);
-        puntos=new HUD(0,"Puntaje");
-        vidas=new HUD(3,"Vidas");
+       
         //World world=new ScrollingWorld();
-        addObject(puntos,150,85);
-        addObject(vidas,300,85);
+        
+        show(0,3);      
         Player p = new Player();
         Spawner playerGun1 = new Spawner(5, 20, 10, 0, 50, 50, 15, 270, 0);
         Spawner playerGun2 = new Spawner(5, 0, 20, 0, 50, 50, 15, 270, 0);
@@ -109,7 +110,12 @@ public class MyWorld extends World
         world.addObject(playerGun2, 50, 50);
         world.addObject(playerGun3, 50, 50);
     }
-
+    public void show(int p,int v){
+         puntos=new HUD(p,"Puntaje");
+       vidas=new HUD(v,"Vidas");
+       addObject(puntos,150,85);
+        addObject(vidas,300,85);
+    }
     public void scroll()
     {
         this.speed=3;

@@ -73,12 +73,14 @@ public class Enemy extends Entity
     public void checkCollisions()
     {
         World w = getWorld();
+         MyWorld w1=(MyWorld)getWorld();
      Actor p=getOneIntersectingObject(Projectile.class);
         //Actor proyectile = getOneIntersectingObject(Projectile.class);
         if(p!=null && ((Projectile) p).getProjectileType() == 0){
              List<Projectile> list_e_=getTouchedObjects(Projectile.class);
         for(Projectile e_:list_e_){
            // 
+           w1.puntos.incPoints(); 
             e_.getWorld().removeObject(this);
            //e_.getWorld().removeObject();
         }
