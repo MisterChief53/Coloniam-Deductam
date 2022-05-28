@@ -21,8 +21,6 @@ public class HUD extends Actor
     public void setLocation(int x, int y) {}
     public HUD(int c,String msj)
     {
-
-
         cont=c;
         mensaje=msj;
         imagen=new GreenfootImage(250,150);
@@ -30,19 +28,18 @@ public class HUD extends Actor
         Font f=new Font("Verdana",false,false,22);
         imagen.setColor(co);
         imagen.setFont(f);
-
         dibuja();
     }
     public void dibuja()
     {
-// Add your action code here.
+        // Add your action code here.
         imagen.clear();
         imagen.drawString(" "+mensaje +": " +cont,20,20);
         setImage(imagen);
     }
     public void dibuja1()
     {
-// Add your action code here.
+        // Add your action code here.
         imagen.clear();
         imagen.drawString(" "+mensaje +": " +contP,20,20);
         setImage(imagen);

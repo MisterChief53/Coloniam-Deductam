@@ -65,9 +65,12 @@ public class Bomb extends Actor
         }
         if(timer<=0){
           getWorld().removeObjects(getWorld().getObjects(Projectile.class));
-          getWorld().removeObject(this);   
+          //Se decrementa la cantidad de bombas antes de borrar el objeto
+          MyWorld w = (MyWorld) getWorld();
+          w.bombas.decrementar();
+          
+          getWorld().removeObject(this);
         }
-        // Add your action code here.
     }
      public int sampleMethod(int y)
     {

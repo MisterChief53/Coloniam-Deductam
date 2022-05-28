@@ -19,6 +19,7 @@ public class MyWorld extends World
     private int cont=0;
     HUD vidas;
     HUD puntos;
+    HUD bombas;
     World toWorld = null; // holds world to return to
     //GreenfootImage image = null; // holds the single panel image for the wallpaper
     static boolean infoShown = false; // flag indicating whether info was shown or not
@@ -66,7 +67,7 @@ public class MyWorld extends World
        
         //World world=new ScrollingWorld();
         
-        show(0,3);      
+        show(0,3,5);      
         Player p = new Player();
         Spawner playerGun1 = new Spawner(5, 20, 10, 0, 50, 50, 15, 270, 0);
         Spawner playerGun2 = new Spawner(5, 0, 20, 0, 50, 50, 15, 270, 0);
@@ -110,11 +111,13 @@ public class MyWorld extends World
         world.addObject(playerGun2, 50, 50);
         world.addObject(playerGun3, 50, 50);
     }
-    public void show(int p,int v){
-         puntos=new HUD(p,"Puntaje");
-       vidas=new HUD(v,"Vidas");
-       addObject(puntos,150,85);
+    public void show(int p, int v, int b){
+        puntos=new HUD(p,"Puntaje");
+        vidas=new HUD(v,"Vidas");
+        bombas = new HUD(b, "Bombas");
+        addObject(puntos,150,85);
         addObject(vidas,300,85);
+        addObject(bombas, 450, 85);
     }
     public void scroll()
     {
@@ -128,11 +131,6 @@ public class MyWorld extends World
             infoShown = true; // flag info for this world as shown
             Greenfoot.setWorld(new Instructions(1, this)); // change to info world
         }
-
-        //  if (Greenfoot.isKeyDown("enter") && cont==0){
-        //           Greenfoot.setWorld(toWorld); // change to calling world when the mouse is clicked
-        //  cont++;
-        //   }
         scroll();
         this.counter++;
         if(counter == 100){

@@ -10,14 +10,13 @@ import java.util.ArrayList;
  */
 public class Player extends Entity
 {
-    
-      private double direction;
+    private double direction;
     private int speed;
     int cont=0;
-         private int timer=15;
-         boolean x;
+    private int timer=15;
+    boolean x;
     int c=0;
-   // int speed;
+    // int speed;
     private int numSpawners = 3;
     /**
      * Act - do whatever the player wants to do. This method is called whenever
@@ -39,14 +38,9 @@ public class Player extends Entity
         if(Greenfoot.mouseClicked(null) && c<5){
             world.addObject(new Bomb(270, 6), getX()+1, getY()+2);
             c++;
-          
         }
-        movement();
-             
+        movement();  
         checkCollisions();
-   
-      
- 
     }
     
     public void movement(){
@@ -76,68 +70,30 @@ public class Player extends Entity
         }
     }
     public void Guts(boolean x,int r){ //metodo a revisar 
-    //    while(timer>0){
-            
-      //  }
-      MyWorld w=(MyWorld)getWorld();
-      //if(timer>0){
-        //   timer--;
-    // }
-
+        MyWorld w=(MyWorld)getWorld();
         if(r==0 && x==true && timer<=0){
              w.vidas.decrementar();
              timer=280;
         }
     }
-      public void checkCollisions()
+    public void checkCollisions()
     {
-        //int r=0;
         MyWorld w=(MyWorld)getWorld();
         Actor proyectile = getOneIntersectingObject(Projectile.class);
         if(proyectile != null && ((Projectile) proyectile).getProjectileType() == 1)
         {
-           // World w = getWorld();
-           // w.removeObject(this);
-           // w.removeObject(proyectile);
             List<Projectile> list_e_=getTouchedObjects(Projectile.class);
-         
-              timer--;
-          
-                
-         
-        for(Projectile e_:list_e_){
-           // World w = getWorld();
-            
-           // e_.getWorld().removeObject(this);
-           e_.getWorld().removeObject(proyectile);
-            //setLocation(getX()-10 , getY()-10);
-         //Greenfoot.setWorld(new MyWorld());
-                 
-                //do{
-            //  Guts(true,r);
-             // r++;
-            //}while (timer>0);
-              //  timer=15;
-            if(timer<=0){
-                  w.vidas.decrementar();
-                  timer=15;
-                }  
-              
-           // }
-            
-        }
-         if(w.vidas.valor()<=0){
-           
-             Greenfoot.setWorld(new Instructions(0, w));
-             
-        }
-      
-           
-    
+            timer--;
+            for(Projectile e_:list_e_){
+                e_.getWorld().removeObject(proyectile);
+                if(timer<=0){
+                    w.vidas.decrementar();
+                    timer=15;
+                }     
+            }
+             if(w.vidas.valor()<=0){
+                 Greenfoot.setWorld(new Instructions(0, w));
+            }
+        } 
     }
-   
-     //r=0;
-     //timer=0;
-       
-}
 }
