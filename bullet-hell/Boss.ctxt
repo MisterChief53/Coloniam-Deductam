@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Boss
+comment0.text=\n\ Write\ a\ description\ of\ class\ Boss\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=direction\ speed
+comment1.target=Boss(char,\ int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ checkCollisions()
+comment4.params=
+comment4.target=void\ HealthBar()
+numComments=5

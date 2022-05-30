@@ -31,6 +31,7 @@ public class MyWorld extends World
     private Enemy enemy5;
     private Enemy enemy6;
     private Enemy enemy7;
+    private Boss boss1;
     private Spawner enemy1Gun1;
     private Spawner enemy2Gun1;
     private Spawner enemy2Gun2;
@@ -50,6 +51,7 @@ public class MyWorld extends World
     private Spawner enemy7Gun2;
     private Spawner enemy7Gun3;
     private Spawner enemy7Gun4;
+    private Spawner boss1Gun1;
     private int speed;
     /**
     * Constructor for objects of class MyWorld.
@@ -105,6 +107,9 @@ public class MyWorld extends World
         this.enemy7Gun2 = new Spawner(3, 19, 0, 1, MyWorld.WIDTH - 100, MyWorld.HEIGHT - 50, 9, 0, 1);
         this.enemy7Gun3 = new Spawner(3, 0, 20, 1, MyWorld.WIDTH - 100, MyWorld.HEIGHT - 50, 9, 360, 1);
         this.enemy7Gun4 = new Spawner(3, -20, 0, 1, MyWorld.WIDTH - 100, MyWorld.HEIGHT - 50, 9, 260, 1);
+        
+        this.boss1 = new Boss('D', 5);
+        this.boss1Gun1 = new Spawner(5, 0, -20, 1, 100, 50, 5, 90, 1);
     
         world.addObject(p, 50, 50);
         world.addObject(playerGun1, 50, 50);
@@ -135,6 +140,7 @@ public class MyWorld extends World
         this.counter++;
         if(counter == 100){
             this.addObject(this.enemy1, 100, 50);
+            //this.addObject(new HealthBar("health1.png"), 100, 500);
             this.addObject(enemy1Gun1, 100,50);
         }
 
@@ -219,6 +225,12 @@ public class MyWorld extends World
             this.enemy7Gun2.shoot();
             this.enemy7Gun3.shoot();
             this.enemy7Gun4.shoot();
+        }
+        if(counter == 900){
+            this.boss1 = new Boss('D', 0);
+            this.boss1Gun1 = new Spawner(5, 0, -20, 1, 100, 50, 5, 90, 1);
+            this.addObject(this.boss1, 100, 50);
+            this.addObject(this.boss1Gun1, 100,50);
         }
     }
     
