@@ -70,7 +70,7 @@ public class Spawner extends Actor
                 this.sound.play();
             }*/
         }
-        //setImage(debugSprite);
+        setImage(debugSprite);
     }
 
     public void shoot(){

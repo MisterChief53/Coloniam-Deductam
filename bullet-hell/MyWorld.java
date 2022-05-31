@@ -31,6 +31,16 @@ public class MyWorld extends World
     private Enemy enemy5;
     private Enemy enemy6;
     private Enemy enemy7;
+    private Enemy enemy8;
+    private Enemy enemy9;
+    private Enemy enemy10;
+    private Enemy enemy11;
+    private Enemy enemy12;
+    private Enemy enemy13;
+    private Enemy enemy14;
+    private Enemy enemy15;
+    private Enemy enemy16;
+    private Enemy enemy17;
     private Boss boss1;
     private Spawner enemy1Gun1;
     private Spawner enemy2Gun1;
@@ -51,6 +61,24 @@ public class MyWorld extends World
     private Spawner enemy7Gun2;
     private Spawner enemy7Gun3;
     private Spawner enemy7Gun4;
+    private Spawner enemy8Gun1;
+    private Spawner enemy8Gun2;
+    private Spawner enemy8Gun3;
+    private Spawner enemy9Gun1;
+    private Spawner enemy9Gun2;
+    private Spawner enemy9Gun3;
+    private Spawner enemy10Gun1;
+    private Spawner enemy10Gun2;
+    private Spawner enemy10Gun3;
+    private Spawner enemy11Gun1;
+    private Spawner enemy11Gun2;
+    private Spawner enemy11Gun3;
+    private Spawner enemy12Gun1;
+    private Spawner enemy12Gun2;
+    private Spawner enemy12Gun3;
+    private Spawner enemy13Gun1;
+    private Spawner enemy13Gun2;
+    private Spawner enemy13Gun3;
     private Spawner boss1Gun1;
     private int speed;
     private Dialogue[] dialogueArray = new Dialogue[14];
@@ -114,6 +142,36 @@ public class MyWorld extends World
         this.enemy7Gun3 = new Spawner(3, 0, 5, 1, MyWorld.WIDTH - 100, MyWorld.HEIGHT - 50, 9, 360, 1);
         this.enemy7Gun4 = new Spawner(3, -5, 0, 1, MyWorld.WIDTH - 100, MyWorld.HEIGHT - 50, 9, 260, 1);
         
+        this.enemy8 = new Enemy('L', 3, "Enemy2.gif", "gif");
+        this.enemy8Gun1 = new Spawner(4, 0, -5, 1, 500, 50, 9, 90, 1);
+        this.enemy8Gun2 = new Spawner(4, 5, 0, 1, 500, 50, 9, 91, 1);
+        this.enemy8Gun3 = new Spawner(4, 5, 0, 1, 500, 50, 9, 40, 1);
+        
+        this.enemy9 = new Enemy('L', 3, "Enemy2.gif", "gif");
+        this.enemy9Gun1 = new Spawner(4, 0, -5, 1, 500, 50, 9, 90, 1);
+        this.enemy9Gun2 = new Spawner(4, 5, 0, 1, 500, 50, 9, 91, 1);
+        this.enemy9Gun3 = new Spawner(4, 5, 0, 1, 500, 50, 9, 40, 1);
+        
+        this.enemy10 = new Enemy('L', 3, "Enemy2.gif", "gif");
+        this.enemy10Gun1 = new Spawner(4, 0, -5, 1, 500, 50, 9, 90, 1);
+        this.enemy10Gun2 = new Spawner(4, 5, 0, 1, 500, 50, 9, 91, 1);
+        this.enemy10Gun3 = new Spawner(4, 5, 0, 1, 500, 50, 9, 40, 1);
+        
+        this.enemy11 = new Enemy('L', 3, "Enemy2.gif", "gif");
+        this.enemy11Gun1 = new Spawner(4, 0, -5, 1, 500, 50, 9, 90, 1);
+        this.enemy11Gun2 = new Spawner(4, 5, 0, 1, 500, 50, 9, 91, 1);
+        this.enemy11Gun3 = new Spawner(4, 5, 0, 1, 500, 50, 9, 40, 1);
+        
+        this.enemy12 = new Enemy('L', 3, "Enemy2.gif", "gif");
+        this.enemy12Gun1 = new Spawner(4, 0, -5, 1, 500, 50, 9, 90, 1);
+        this.enemy12Gun2 = new Spawner(4, 5, 0, 1, 500, 50, 9, 91, 1);
+        this.enemy12Gun3 = new Spawner(4, 5, 0, 1, 500, 50, 9, 40, 1);
+        
+        this.enemy13 = new Enemy('L', 3, "Enemy2.gif", "gif");
+        this.enemy13Gun1 = new Spawner(4, 0, -5, 1, 500, 50, 9, 90, 1);
+        this.enemy13Gun2 = new Spawner(4, 5, 0, 1, 500, 50, 9, 91, 1);
+        this.enemy13Gun3 = new Spawner(4, 5, 0, 1, 500, 50, 9, 40, 1);
+        
         this.boss1 = new Boss('D', 5, "Enemy1.gif", "gif");
         this.boss1Gun1 = new Spawner(5, 0, -5, 1, 100, 50, 5, 90, 1);
     
@@ -148,7 +206,7 @@ public class MyWorld extends World
             this.addObject(dialogueArray[0], 300, this.HEIGHT - 97);
         }
         if(counter == 300){
-            this.scroller.setScrollImage(background2);
+            //this.scroller.setScrollImage(background2);
             this.removeObject(dialogueArray[0]);
             this.addObject(this.enemy1, 100, 50);
             //this.addObject(new HealthBar("health1.png"), 100, 500);
@@ -237,7 +295,28 @@ public class MyWorld extends World
             this.enemy7Gun3.shoot();
             this.enemy7Gun4.shoot();
         }
-        if(counter == 1100){
+        if(counter == 1300){
+            this.addObject(this.enemy8, 500, 50);
+            this.addObject(this.enemy8Gun1, 500, 50);
+            this.addObject(this.enemy8Gun2, 500, 50);
+            this.addObject(this.enemy8Gun3, 500, 50);
+            
+            this.addObject(this.enemy9, 450, 60);
+            this.addObject(this.enemy9Gun1, 450, 60);
+            this.addObject(this.enemy9Gun2, 450, 60);
+            this.addObject(this.enemy9Gun3, 450, 60);
+        }
+        if(counter >= 1301 && counter <= 1400 && enemy8.getWorld() != null){
+            this.enemy8Gun1.shoot();
+            this.enemy8Gun2.shoot();
+            this.enemy8Gun3.shoot();
+        }
+        if(counter >= 1301 && counter <= 1400 && enemy9.getWorld() != null){
+            this.enemy9Gun1.shoot();
+            this.enemy9Gun2.shoot();
+            this.enemy9Gun3.shoot();
+        }
+        if(counter == 1600){
             this.boss1 = new Boss('D', 0, "Enemy5.png", "png");
             this.boss1Gun1 = new Spawner(5, 0, -5, 1, 100, 50, 5, 90, 1);
             this.addObject(this.boss1, 100, 50);
