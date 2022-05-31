@@ -14,7 +14,7 @@ public class Bomb extends Actor
     private int cont=0;
     private int timer = 25;
     GifImage gif = new GifImage("Explosion-unscreen.gif");
-
+    private GreenfootSound explosion;
 
     /**
      * Act - do whatever the Bomb wants to do. This method is called whenever
@@ -30,6 +30,8 @@ public class Bomb extends Actor
         }
         this.direction = direction;
         this.speed = speed;
+        this.explosion = new GreenfootSound("explosion.mp3");
+        this.explosion.setVolume(25);
     }
      public void movement()
     {
@@ -66,9 +68,9 @@ public class Bomb extends Actor
         if(timer<=0){
           getWorld().removeObjects(getWorld().getObjects(Projectile.class));
           //Se decrementa la cantidad de bombas antes de borrar el objeto
+          this.explosion.play();
           MyWorld w = (MyWorld) getWorld();
           w.bombas.decrementar();
-          
           getWorld().removeObject(this);
         }
     }

@@ -13,19 +13,7 @@ public class Projectile extends Actor
     private double direction;
     private int speed;
     private int projectileType; // 0 for player, 1 for enemy
-
-    
-
-    /* public Proyectile(){
-    speed=6;
-    dir2=90;
-    setRotation(dir2);
-    }
-    public Proyectile(int dir){
-    speed=6;
-    dir2=dir;
-    setRotation(dir2);
-    }*/
+    private GreenfootImage sprite;
     /**
     * Constructor for objects of class Proyectile
 
@@ -36,6 +24,11 @@ public class Projectile extends Actor
         this.direction = direction;
         this.speed = speed;
         this.projectileType = proyectileType;
+        if(this.projectileType == 0){
+            this.sprite = new GreenfootImage("playerBullet.png");
+        }else{
+            this.sprite = new GreenfootImage("enemyBullet.rotated.png");
+        }
     }
     public void movement()
     {
@@ -66,9 +59,7 @@ public class Projectile extends Actor
     public void act()
     {
         movement();
-        
-    // move(speed);
-        //checkCollisions();
+        setImage(sprite);
     }
     /**
     * An example of a method - replace this comment with your own
@@ -112,12 +103,4 @@ public class Projectile extends Actor
     public int getProjectileType(){
         return this.projectileType;
     }
-
-/*
-    public void act() 
-    {
-        List<Enemy> list_e_=getTouchedObjects(Enemy.class);
-        for(Enemy e_:list_e_)
-             getWorld().removeObject(this);
-    }    */
 }

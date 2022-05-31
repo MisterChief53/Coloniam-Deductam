@@ -19,6 +19,8 @@ public class Spawner extends Actor
     private int entityY;
     private int anchorType; //0 for player, 1 for enemy
     private int spawnerType; // 0 for player, 1 for enemy
+    private GreenfootImage debugSprite;
+    private GreenfootSound sound;
     /**
     * Constructor for objects of class Spawner
     */
@@ -33,6 +35,9 @@ public class Spawner extends Actor
         this.speed = speed;
         this.direction = direction;
         this.spawnerType = spawnerType;
+        this.debugSprite = new GreenfootImage("red-draught-king.png");
+        this.sound = new GreenfootSound("gunshot.mp3");
+        this.sound.setVolume(10);
     }
 
     public void spawn(double direction, int speed)
@@ -43,6 +48,7 @@ public class Spawner extends Actor
         }else{
             world.addObject(new Projectile(direction, speed, 1), getX()+1, getY()+2);
         }
+        //this.sound.play();
     }
 
     public void act(){
@@ -54,8 +60,17 @@ public class Spawner extends Actor
             {
                 spawn(this.direction, this.speed);
                 counter = 0;
+                if(Greenfoot.getRandomNumber(10)%2==0){
+                    this.sound.play();
+                }
+                //this.sound.play();
             }
+            /*
+            if(!this.sound.isPlaying()){
+                this.sound.play();
+            }*/
         }
+        //setImage(debugSprite);
     }
 
     public void shoot(){
@@ -63,7 +78,15 @@ public class Spawner extends Actor
         if (this.counter > this.spawnRate){
             spawn(this.direction, this.speed);
             counter = 0;
+            if(Greenfoot.getRandomNumber(10)%2==0){
+                this.sound.play();
+            }
         }
+        /*
+        if(!this.sound.isPlaying()){
+            this.sound.play();
+        }
+        */
     }
 
     /**
@@ -108,6 +131,7 @@ public class Spawner extends Actor
         World w = getWorld();
         if(getY() > w.getHeight() + 100 || getX() > w.getWidth() + 100
                 || getX() < (-100) || getY() < (-100) ){
+            this.sound.stop();
             w.removeObject(this);
         }
     }

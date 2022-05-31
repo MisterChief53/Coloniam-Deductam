@@ -20,13 +20,17 @@ public class Enemy extends Entity
     private int x;
     private int y;
     private int health;
-    public Enemy(char direction, int speed)
+    private GreenfootImage staticSprite;
+    private GifImage animatedSprite;
+    public Enemy(char direction, int speed, String sprite, String spriteType)
     {
+        super(sprite, spriteType);
         this.direction = direction;
         this.speed = speed;
         this.health = 100;
     }
-    public Enemy(char direction, int speed, int health){
+    public Enemy(char direction, int speed, String sprite, String spriteType, int health){
+        super(sprite, spriteType);
         this.direction = direction;
         this.speed = speed;
         this.health = health;
@@ -35,6 +39,7 @@ public class Enemy extends Entity
     {
         movement();
         checkCollisions();
+        super.applySprite();
     }
     public void movement()
     {

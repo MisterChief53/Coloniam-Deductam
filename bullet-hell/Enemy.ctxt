@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=Enemy
 comment0.text=\n\ Write\ a\ description\ of\ class\ Enemy\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=direction\ speed
-comment1.target=Enemy(char,\ int)
+comment1.params=direction\ speed\ sprite\ spriteType
+comment1.target=Enemy(char,\ int,\ java.lang.String,\ java.lang.String)
 comment10.params=health
 comment10.target=void\ setHealth(int)
-comment2.params=direction\ speed\ health
-comment2.target=Enemy(char,\ int,\ int)
+comment2.params=direction\ speed\ sprite\ spriteType\ health
+comment2.target=Enemy(char,\ int,\ java.lang.String,\ java.lang.String,\ int)
 comment3.params=
 comment3.target=void\ act()
 comment4.params=

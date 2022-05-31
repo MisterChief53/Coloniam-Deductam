@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Player
 comment0.text=\n\ Write\ a\ description\ of\ class\ player\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=
-comment1.target=Player()
+comment1.params=sprite\ spriteType
+comment1.target=Player(java.lang.String,\ java.lang.String)
 comment1.text=\n\ Act\ -\ do\ whatever\ the\ player\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment2.params=
 comment2.target=int\ getSpeed()

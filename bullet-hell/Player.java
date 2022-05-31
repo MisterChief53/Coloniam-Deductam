@@ -22,7 +22,8 @@ public class Player extends Entity
      * Act - do whatever the player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Player(){
+    public Player(String sprite, String spriteType){
+        super(sprite, spriteType);
         this.speed=5;
     }
     public int getSpeed(){
@@ -41,6 +42,7 @@ public class Player extends Entity
         }
         movement();  
         checkCollisions();
+        super.applySprite();
     }
     
     public void movement(){
