@@ -61,7 +61,7 @@ public class Spawner extends Actor
                 spawn(this.direction, this.speed);
                 counter = 0;
                 if(Greenfoot.getRandomNumber(10)%2==0){
-                    this.sound.play();
+                    //this.sound.play();
                 }
                 //this.sound.play();
             }
@@ -70,7 +70,7 @@ public class Spawner extends Actor
                 this.sound.play();
             }*/
         }
-        setImage(debugSprite);
+        //setImage(debugSprite);
     }
 
     public void shoot(){
@@ -131,7 +131,7 @@ public class Spawner extends Actor
         World w = getWorld();
         if(getY() > w.getHeight() + 100 || getX() > w.getWidth() + 100
                 || getX() < (-100) || getY() < (-100) ){
-            this.sound.stop();
+            //this.sound.stop();
             w.removeObject(this);
         }
     }

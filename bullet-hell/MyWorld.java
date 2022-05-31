@@ -24,6 +24,8 @@ public class MyWorld extends World
     //GreenfootImage image = null; // holds the single panel image for the wallpaper
     static boolean infoShown = false; // flag indicating whether info was shown or not
     private int counter = 0;
+    
+    //level 1 ******************************
     private Enemy enemy1;
     private Enemy enemy2;
     private Enemy enemy3;
@@ -80,6 +82,7 @@ public class MyWorld extends World
     private Spawner enemy13Gun2;
     private Spawner enemy13Gun3;
     private Spawner boss1Gun1;
+    //************************************************
     private int speed;
     private Dialogue[] dialogueArray = new Dialogue[14];
     GreenfootImage background1, background2, background3;
@@ -105,7 +108,7 @@ public class MyWorld extends World
         
         show(0,3,5);      
         Player p = new Player("Player.rotated.gif", "gif");
-        Spawner playerGun1 = new Spawner(5, 5, 5, 0, 50, 50, 15, 270, 0);
+        Spawner playerGun1 = new Spawner(5, 10, 5, 0, 50, 50, 15, 270, 0);
         //Spawner playerGun2 = new Spawner(5, 0, 5, 0, 50, 50, 15, 270, 0);
         Spawner playerGun3 = new Spawner(5, -5, 5, 0, 50, 50, 15, 270, 0);
         
@@ -147,29 +150,29 @@ public class MyWorld extends World
         this.enemy8Gun2 = new Spawner(4, 5, 0, 1, 500, 50, 9, 91, 1);
         this.enemy8Gun3 = new Spawner(4, 5, 0, 1, 500, 50, 9, 40, 1);
         
-        this.enemy9 = new Enemy('L', 3, "Enemy2.gif", "gif");
-        this.enemy9Gun1 = new Spawner(4, 0, -5, 1, 500, 50, 9, 90, 1);
-        this.enemy9Gun2 = new Spawner(4, 5, 0, 1, 500, 50, 9, 91, 1);
-        this.enemy9Gun3 = new Spawner(4, 5, 0, 1, 500, 50, 9, 40, 1);
+        this.enemy9 = new Enemy('R', 3, "Enemy2.gif", "gif");
+        this.enemy9Gun1 = new Spawner(4, 0, -5, 1, 60, 60, 9, 90, 1);
+        this.enemy9Gun2 = new Spawner(4, 5, 0, 1, 60, 60, 9, 91, 1);
+        this.enemy9Gun3 = new Spawner(4, 5, 0, 1, 60, 60, 9, 40, 1);
         
-        this.enemy10 = new Enemy('L', 3, "Enemy2.gif", "gif");
-        this.enemy10Gun1 = new Spawner(4, 0, -5, 1, 500, 50, 9, 90, 1);
-        this.enemy10Gun2 = new Spawner(4, 5, 0, 1, 500, 50, 9, 91, 1);
-        this.enemy10Gun3 = new Spawner(4, 5, 0, 1, 500, 50, 9, 40, 1);
+        this.enemy10 = new Enemy('L', 3, "Enemy6.png", "png");
+        this.enemy10Gun1 = new Spawner(4, 0, -5, 1, 500, 80, 9, 90, 1);
+        this.enemy10Gun2 = new Spawner(4, 5, 0, 1, 500, 80, 9, 91, 1);
+        this.enemy10Gun3 = new Spawner(4, 5, 0, 1, 500, 80, 9, 40, 1);
         
-        this.enemy11 = new Enemy('L', 3, "Enemy2.gif", "gif");
-        this.enemy11Gun1 = new Spawner(4, 0, -5, 1, 500, 50, 9, 90, 1);
-        this.enemy11Gun2 = new Spawner(4, 5, 0, 1, 500, 50, 9, 91, 1);
-        this.enemy11Gun3 = new Spawner(4, 5, 0, 1, 500, 50, 9, 40, 1);
+        this.enemy11 = new Enemy('D', 3, "Enemy6.png", "png");
+        this.enemy11Gun1 = new Spawner(4, 0, -5, 1, 300, 50, 9, 270, 1);
+        this.enemy11Gun2 = new Spawner(4, 5, 0, 1, 300, 50, 9, 180, 1);
+        this.enemy11Gun3 = new Spawner(4, 5, 0, 1, 300, 50, 9, 40, 1);
         
-        this.enemy12 = new Enemy('L', 3, "Enemy2.gif", "gif");
-        this.enemy12Gun1 = new Spawner(4, 0, -5, 1, 500, 50, 9, 90, 1);
-        this.enemy12Gun2 = new Spawner(4, 5, 0, 1, 500, 50, 9, 91, 1);
-        this.enemy12Gun3 = new Spawner(4, 5, 0, 1, 500, 50, 9, 40, 1);
+        this.enemy12 = new Enemy('D', 2, "Enemy3.gif", "gif", 200);
+        this.enemy12Gun1 = new Spawner(4, 0, -5, 1, 50, 50, 9, 90, 1);
+        this.enemy12Gun2 = new Spawner(4, 5, 0, 1, 50, 50, 9, 360, 1);
+        this.enemy12Gun3 = new Spawner(4, 5, 0, 1, 50, 50, 9, 40, 1);
         
-        this.enemy13 = new Enemy('L', 3, "Enemy2.gif", "gif");
+        this.enemy13 = new Enemy('D', 2, "Enemy3.gif", "gif", 200);
         this.enemy13Gun1 = new Spawner(4, 0, -5, 1, 500, 50, 9, 90, 1);
-        this.enemy13Gun2 = new Spawner(4, 5, 0, 1, 500, 50, 9, 91, 1);
+        this.enemy13Gun2 = new Spawner(4, 5, 0, 1, 500, 50, 9, 0, 1);
         this.enemy13Gun3 = new Spawner(4, 5, 0, 1, 500, 50, 9, 40, 1);
         
         this.boss1 = new Boss('D', 5, "Enemy1.gif", "gif");
@@ -205,21 +208,21 @@ public class MyWorld extends World
         if(counter == 1){
             this.addObject(dialogueArray[0], 300, this.HEIGHT - 97);
         }
-        if(counter == 300){
-            //this.scroller.setScrollImage(background2);
+        if(counter == 500){
+            this.scroller.setScrollImage(background2);
             this.removeObject(dialogueArray[0]);
             this.addObject(this.enemy1, 100, 50);
             //this.addObject(new HealthBar("health1.png"), 100, 500);
             this.addObject(enemy1Gun1, 100,50);
         }
 
-        if(counter == 310 && enemy1.getWorld() != null){
+        if(counter == 510 && enemy1.getWorld() != null){
             this.enemy1.setDirection('R');
         }
-        if(counter >= 300 && counter <= 330 && enemy1.getWorld() != null){
+        if(counter >= 500 && counter <= 530 && enemy1.getWorld() != null){
             this.enemy1Gun1.shoot();
         }
-        if(counter == 325){
+        if(counter == 525){
             this.addObject(this.enemy2, 450, 50);
             this.addObject(this.enemy2Gun2, 450, 50);
             this.addObject(this.enemy2Gun1, 450, 50);
@@ -232,21 +235,25 @@ public class MyWorld extends World
             this.addObject(this.enemy4Gun2, 550, 50);
             this.addObject(this.enemy4Gun1, 550, 50);
         }
-        if(counter == 326 && enemy2Gun2.getWorld() == null){
+        if(counter == 526 && enemy2Gun2.getWorld() == null){
             this.addObject(this.enemy2Gun2, 300, 50);
         }
-        if(counter >= 340 && counter <= 360 && enemy1.getWorld() != null){
+        if(counter >= 540 && counter <= 560 && enemy1.getWorld() != null){
             this.enemy1Gun1.shoot();
         }
-        if(counter >= 340 && counter <= 390 && enemy2.getWorld() != null){
+        if(counter >= 540 && counter <= 590 && enemy2.getWorld() != null){
             this.enemy2Gun1.shoot();
             this.enemy2Gun2.shoot();
+        }
+        if(counter >= 540 && counter <= 560 && enemy3.getWorld() != null){
             this.enemy3Gun1.shoot();
             this.enemy3Gun2.shoot();
+        }
+        if(counter >= 540 && counter <= 560 && enemy4.getWorld() != null){
             this.enemy4Gun1.shoot();
             this.enemy4Gun2.shoot();
         }
-        if(counter == 500){
+        if(counter == 700){
             this.addObject(this.enemy5, 300, 50);
             this.addObject(this.enemy5Gun1, 300, 50);
             this.addObject(this.enemy5Gun2, 300, 50);
@@ -265,31 +272,31 @@ public class MyWorld extends World
             this.addObject(this.enemy7Gun3, MyWorld.WIDTH - 100, MyWorld.HEIGHT - 50);
             this.addObject(this.enemy7Gun4, MyWorld.WIDTH - 100, MyWorld.HEIGHT - 50);
         }
-        if(counter >= 505 && counter <= 650 && enemy5.getWorld() != null){
+        if(counter >= 705 && counter <= 850 && enemy5.getWorld() != null){
             this.enemy5Gun1.shoot();
             this.enemy5Gun2.shoot();
             this.enemy5Gun3.shoot();
             this.enemy5Gun4.shoot();
         }
-        if(counter >= 670 && counter <= 700 && enemy5.getWorld() != null){
+        if(counter >= 870 && counter <= 900 && enemy5.getWorld() != null){
             this.enemy5Gun1.shoot();
             this.enemy5Gun2.shoot();
             this.enemy5Gun3.shoot();
             this.enemy5Gun4.shoot();
         }
-        if(counter >= 720 && counter <= 900 && enemy5.getWorld() != null){
+        if(counter >= 920 && counter <= 1100 && enemy5.getWorld() != null){
             this.enemy5Gun1.shoot();
             this.enemy5Gun2.shoot();
             this.enemy5Gun3.shoot();
             this.enemy5Gun4.shoot();
         }
-        if(counter >= 505 && counter <= 900 && enemy6.getWorld() != null){
+        if(counter >= 705 && counter <= 1100 && enemy6.getWorld() != null){
             this.enemy6Gun1.shoot();
             this.enemy6Gun2.shoot();
             this.enemy6Gun3.shoot();
             this.enemy6Gun4.shoot();
         }
-        if(counter >= 505 && counter <= 900 && enemy7.getWorld() != null){
+        if(counter >= 705 && counter <= 1100 && enemy7.getWorld() != null){
             this.enemy7Gun1.shoot();
             this.enemy7Gun2.shoot();
             this.enemy7Gun3.shoot();
@@ -301,10 +308,10 @@ public class MyWorld extends World
             this.addObject(this.enemy8Gun2, 500, 50);
             this.addObject(this.enemy8Gun3, 500, 50);
             
-            this.addObject(this.enemy9, 450, 60);
-            this.addObject(this.enemy9Gun1, 450, 60);
-            this.addObject(this.enemy9Gun2, 450, 60);
-            this.addObject(this.enemy9Gun3, 450, 60);
+            this.addObject(this.enemy9, 60, 60);
+            this.addObject(this.enemy9Gun1, 60, 60);
+            this.addObject(this.enemy9Gun2, 60, 60);
+            this.addObject(this.enemy9Gun3, 60, 60);
         }
         if(counter >= 1301 && counter <= 1400 && enemy8.getWorld() != null){
             this.enemy8Gun1.shoot();
@@ -316,8 +323,54 @@ public class MyWorld extends World
             this.enemy9Gun2.shoot();
             this.enemy9Gun3.shoot();
         }
-        if(counter == 1600){
-            this.boss1 = new Boss('D', 0, "Enemy5.png", "png");
+        if(counter == 1500){
+            this.addObject(this.enemy10, 500, 80);
+            this.addObject(this.enemy10Gun1, 500,80);
+            this.addObject(this.enemy10Gun2, 500, 80);
+            this.addObject(this.enemy10Gun3, 500, 80);
+            
+            this.addObject(this.enemy11, 300, 50);
+            this.addObject(this.enemy11Gun1, 300,50);
+            this.addObject(this.enemy11Gun2, 300, 50);
+            this.addObject(this.enemy11Gun3, 300, 50);
+        }
+        if(counter >= 1501 && counter <= 1700 && enemy10.getWorld() != null){
+            this.enemy10Gun1.shoot();
+            this.enemy10Gun2.shoot();
+            this.enemy10Gun3.shoot();
+        }
+        if(counter >= 1501 && counter <= 1700 && enemy11.getWorld() != null){
+            this.enemy11Gun1.shoot();
+            this.enemy11Gun2.shoot();
+            this.enemy11Gun3.shoot();
+        }
+        if(counter == 1800){
+            this.addObject(this.enemy12, 50, 50);
+            this.addObject(this.enemy12Gun1, 50,50);
+            this.addObject(this.enemy12Gun2, 50, 50);
+            this.addObject(this.enemy12Gun3, 50, 50);
+            
+            this.addObject(this.enemy13, 500, 50);
+            this.addObject(this.enemy13Gun1, 500,50);
+            this.addObject(this.enemy13Gun2, 500, 50);
+            this.addObject(this.enemy13Gun3, 500, 50);
+        }
+        if(counter >= 1801 && counter <= 2100 && enemy12.getWorld() != null){
+            this.enemy12Gun1.shoot();
+            this.enemy12Gun2.shoot();
+            this.enemy12Gun3.shoot();
+        }
+        if(counter >= 1801 && counter <= 2100 && enemy13.getWorld() != null){
+            this.enemy13Gun1.shoot();
+            this.enemy13Gun2.shoot();
+            this.enemy13Gun3.shoot();
+        }
+        if(counter == 1900){
+            this.enemy12.setDirection('R');
+            this.enemy13.setDirection('L');
+        }
+        if(counter == 2400){
+            this.boss1 = new Boss('D', 0, "boss1.png", "png");
             this.boss1Gun1 = new Spawner(5, 0, -5, 1, 100, 50, 5, 90, 1);
             this.addObject(this.boss1, 100, 50);
             this.addObject(this.boss1Gun1, 100,50);
