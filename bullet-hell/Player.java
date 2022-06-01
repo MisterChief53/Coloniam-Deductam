@@ -98,4 +98,7 @@ public class Player extends Entity
             }
         } 
     }
+    public void setBombs(int bombs){
+        this.c = bombs;
+    }
 }

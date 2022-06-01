@@ -78,9 +78,10 @@ public class Spawner extends Actor
         if (this.counter > this.spawnRate){
             spawn(this.direction, this.speed);
             counter = 0;
+            /*
             if(Greenfoot.getRandomNumber(10)%2==0){
                 this.sound.play();
-            }
+            }*/
         }
         /*
         if(!this.sound.isPlaying()){

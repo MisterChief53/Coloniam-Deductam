@@ -108,4 +108,11 @@ public class Enemy extends Entity
     public void setHealth(int health){
         this.health = health;
     }
+    /*
+    public int getX(){
+        return this.x;
+    }
+    public int getY(){
+        return this.y;
+    }*/
 }

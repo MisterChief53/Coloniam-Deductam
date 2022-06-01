@@ -65,4 +65,11 @@ public class HUD extends Actor
     public int Points(){
         return contP;
     }
+    public void setCont(int cont){
+        this.cont = cont;
+        dibuja();
+    }
+    public int getCont(){
+        return this.cont;
+    }
 }
