@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Collision
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Collision\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Clase\ Collision\ es\ la\ clase\ que\ controla\ el\ nuevo\ sistema\ de\ colisiones\ (no\ es\ nuestro)\r\n\ @author\ Valeria,Diego\ y\ Angel\r\n\ @version\ Final\r\n
 comment1.params=clss
 comment1.target=java.util.List\ getTouchedObjects(java.lang.Class)
 comment1.text=This\ method\ is\ a\ pixel\ perfect\ collision\ detection.\ Returns\ a\ List\ of\ all\ Actors,\ that\ are\ touched\ by\ this\ object

@@ -1,17 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Entity here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+* Clase Entity es la clase padre de Enemy y boss, pues con esto podran ser incluidos en el sistema de colisiones
+* @author Valeria,Diego y Angel
+* @version Final
+*/
+//Clase padre de Enemigo y Jugador para que el sistema de colisiones sea facilmente aplicable a sus clases hija
 public abstract class Entity extends Collision
 {
-    private GreenfootImage staticSprite;
+    private GreenfootImage staticSprite;//atributos para asignar sprites
     private GifImage animatedSprite;
     private String spriteType;
-    public Entity(String sprite, String spriteType){
+    public Entity(String sprite, String spriteType){//metodo para asignar sprites
         this.spriteType = spriteType;
         if(this.spriteType == "gif"){
             this.animatedSprite = new GifImage(sprite);
@@ -36,14 +36,14 @@ public abstract class Entity extends Collision
         setLocation(getX()+x,getY()+y);
     }
     public abstract void movement();
-    public void applySprite(){
+    public void applySprite(){//metodo para aplicar el sprite
         if(this.spriteType == "gif"){
             setImage(this.animatedSprite.getCurrentImage());
         }else{
             setImage(this.staticSprite);
         }
     }
-    public String getSpriteType(){
+    public String getSpriteType(){//metodos para obtener el sprite de distintos formatos
         return this.spriteType;
     }
     public GifImage getAnimatedSprite(){

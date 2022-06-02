@@ -1,9 +1,8 @@
 import greenfoot.*;
 /**
-* Write a description of class Spawner here.
-*
-* @author (your name)
-* @version (a version number or a date)
+* Clase Spawner controla la generacion de "armas" de los actores
+* @author Valeria,Diego y Angel
+* @version Final
 */
 public class Spawner extends Actor
 {

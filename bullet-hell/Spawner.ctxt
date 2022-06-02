@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Spawner
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Spawner\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Clase\ Spawner\ controla\ la\ generacion\ de\ "armas"\ de\ los\ actores\r\n\ @author\ Valeria,Diego\ y\ Angel\r\n\ @version\ Final\r\n
 comment1.params=spawnRate\ xOffset\ yOffset\ anchorType\ entityX\ entityY\ speed\ direction\ spawnerType
 comment1.target=Spawner(int,\ int,\ int,\ int,\ int,\ int,\ int,\ double,\ int)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Spawner\r\n

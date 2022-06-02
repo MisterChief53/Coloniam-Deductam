@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=MyWorld
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Clase\ MyWorld\ es\ donde\ se\ desarrollara\ e\ inicializar\u00E1\ los\ elementos\ que\ tendra\ el\ juego\r\npara\ ser\ agregados\ al\ mundo\r\n\ @author\ Valeria,Diego\ y\ Angel\r\n\ @version\ Final\r\n
 comment1.params=
 comment1.target=MyWorld()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MyWorld.\r\n\r\n

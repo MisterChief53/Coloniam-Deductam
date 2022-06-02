@@ -2,11 +2,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 import java.util.ArrayList;
 /**
- * Write a description of class Collision here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+* Clase Collision es la clase que controla el nuevo sistema de colisiones (no es nuestro)
+* @author Valeria,Diego y Angel
+* @version Final
+*/
+//Este codigo no es nuestro, pero el funcionamiento de este es aproximadamente el siguiente
+//los pixeles se ingresan en una lista la cual sera constantemente verificada, si el pixel
+//entra en contacto con otro se dara la alerta
 public class Collision extends Actor
 {
     /** This method is a pixel perfect collision detection. Returns a List of all Actors, that are touched by this object */

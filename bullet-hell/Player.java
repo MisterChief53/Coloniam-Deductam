@@ -1,13 +1,11 @@
-
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 import java.util.ArrayList;
 /**
- * Write a description of class player here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+* clase Player permite instanciar al jugador para que pueda interactuar con el mundo
+* @author Valeria,Diego y Angel
+* @version Final
+*/
 public class Player extends Entity
 {
     private double direction;
@@ -22,7 +20,8 @@ public class Player extends Entity
      * Act - do whatever the player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Player(String sprite, String spriteType){
+    public Player(String sprite, String spriteType){//instancia al jugador y se le 
+        //da un sprite
         super(sprite, spriteType);
         this.speed=5;
     }
@@ -36,7 +35,7 @@ public class Player extends Entity
             cont++;
         }
         World world = getWorld();
-        if(Greenfoot.mouseClicked(null) && c<5){
+        if(Greenfoot.mouseClicked(null) && c<5){//esto hace que cada vez que se de click se lance la bomba
             world.addObject(new Bomb(270, 6), getX()+1, getY()+2);
             c++;
         }
@@ -45,7 +44,7 @@ public class Player extends Entity
         super.applySprite();
     }
     
-    public void movement(){
+    public void movement(){//se especifica hacia donde se movera con ciertas teclas presionadas
         int x=getX();
         int y=getY();
         move(0,-3);
@@ -78,7 +77,9 @@ public class Player extends Entity
              timer=280;
         }
     }
-    public void checkCollisions()
+    public void checkCollisions()//revisa que ningun proyectil del enemigo lo toque y si es asi empieza a funcionar el reloj, para asi
+      //no bajar todas las vidas del tiron y dar tiempo de reaccion al jugador, y comprueba si las vidas se acabaron para mandar a llamar
+      //al menu de derrota
     {
         MyWorld w=(MyWorld)getWorld();
         Actor proyectile = getOneIntersectingObject(Projectile.class);
