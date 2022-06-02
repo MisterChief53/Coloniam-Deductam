@@ -1,11 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 /**
- * Write a description of class Toucher here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+* Clase Projectile instancia y elimina a los 2 tipos posibles de proyectil
+* @author Valeria,Diego y Angel
+* @version Final
+*/
 public class Projectile extends Actor
 {
     // instance variables - replace the example below with your own
@@ -20,6 +19,7 @@ public class Projectile extends Actor
 
     */
     public Projectile(double direction, int speed, int proyectileType)
+   //ademas de asignar los sprites correspondies a si es de enemigo o de jugador
     {
         this.direction = direction;
         this.speed = speed;
@@ -32,7 +32,7 @@ public class Projectile extends Actor
         }
     }
     //Se deciden la direccion del proyectil. Muy basico. 
-    public void movement()
+    public void movement()//metodo que se prepara a realizar el movimiento a raiz de la direccion y velocidad leida en el contructor de bomba
     {
         if(this.direction == 0){
             move(this.speed, 0);
@@ -53,12 +53,12 @@ public class Projectile extends Actor
         }
     }
 
-    public void move(int x,int y)
+    public void move(int x,int y)//metodo que ejecuta el movimiento
     {
         setLocation(getX()+x,getY()+y);
     }
 
-    public void act()
+    public void act()//solo mueve al proyectil y pone el sprite en pantalla
     {
         movement();
         setImage(sprite);
@@ -74,7 +74,7 @@ public class Projectile extends Actor
         return x + y;
     }
     //Si el proyectil sale de un cierto rango de la pantalla, se elimina.
-    public void checkRemove()
+    public void checkRemove()//verifica si esta fuera de pantalla para eliminarlo
     {
         World w = getWorld();
         if(getY() > w.getHeight() + 30 || getX() > w.getWidth() + 30 || getX() < (-30) || 
@@ -102,7 +102,7 @@ public class Projectile extends Actor
     }
     */
     
-    public int getProjectileType(){
+    public int getProjectileType(){//da el tipo de proyectil
         return this.projectileType;
     }
 }

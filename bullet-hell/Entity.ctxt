@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Entity
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Entity\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Clase\ Entity\ es\ la\ clase\ padre\ de\ Enemy\ y\ boss,\ pues\ con\ esto\ podran\ ser\ incluidos\ en\ el\ sistema\ de\ colisiones\r\n\ @author\ Valeria,Diego\ y\ Angel\r\n\ @version\ Final\r\n
 comment1.params=sprite\ spriteType
 comment1.target=Entity(java.lang.String,\ java.lang.String)
 comment2.params=

@@ -1,11 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class HealthBar here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+* Clase HealthBar muestra la barra de salud
+* @author Valeria,Diego y Angel
+* @version Final
+*/
 public class HealthBar extends Actor
 {
     GreenfootImage image;

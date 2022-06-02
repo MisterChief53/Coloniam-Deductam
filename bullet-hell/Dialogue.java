@@ -1,11 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Dialogue here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+* Clase Dialogue es la que controlara la historia que se comparte
+* @author Valeria,Diego y Angel
+* @version Final
+*/
 public class Dialogue extends Actor
 {
     private GreenfootImage dialogueImage;

@@ -3,12 +3,11 @@ import java.util.List;
 
 
 /**
-* Write a description of class MyWorld here.
-*
-* @author (your name)
-* @version (a version number or a date)
+* Clase MyWorld es donde se desarrollara e inicializará los elementos que tendra el juego
+para ser agregados al mundo
+* @author Valeria,Diego y Angel
+* @version Final
 */
-
 
 
 public class MyWorld extends World

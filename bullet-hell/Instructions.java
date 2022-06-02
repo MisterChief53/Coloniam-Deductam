@@ -3,17 +3,17 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 
 /**
-* Write a description of class Instructions here.
-*
-* @author (your name)
-* @version (a version number or a date)
+* clase Instructions Genera los distintos tipos de menu(inicio, derrota, Victoria)
+* @author Valeria,Diego y Angel
+* @version Final
 */
 public class Instructions extends World
 {
     World toWorld=null;
-    int cont=0;
+    int cont=0;//sera el menu que mostrara
     private GreenfootSound deathMusic = new GreenfootSound("trompeta.mp3");
     private GreenfootSound initialMusic = new GreenfootSound("initialMusic.mp3");
+    private GreenfootSound finalMusic = new GreenfootSound("CancionFinal.mp3");
     private int time;
     private int score;
     /**
@@ -67,16 +67,17 @@ public class Instructions extends World
         }
         toWorld=inWorld;
     }
-      private void setMainImage2()
+      private void setMainImage2()//Todos los setImage Preparan la pantalla(dar color de fondo, dar color a las letras, hacer que cubra la pantalla el menu,da estilo)
+      //, ademas de poner un encabezado con algo de texto
     {
         // create the image for the background
         GreenfootImage main = new GreenfootImage(getWidth(), getHeight());
         main.setColor(Color.BLACK);
         main.fill(); // set a flat black background
         // create images and draw them on the background
-        GreenfootImage img = new GreenfootImage("GAME OVER", 36, Color.YELLOW, Color.BLACK);
+        GreenfootImage img = new GreenfootImage("JUEGO TERMINADO", 36, Color.YELLOW, Color.BLACK);
         main.drawImage(img, (main.getWidth() - img.getWidth()) / 2, 50);
-        img = new GreenfootImage("(you are now in UNDERWORLD)", 18, Color.YELLOW, Color.BLACK);
+        img = new GreenfootImage("(Has fracasado)", 18, Color.YELLOW, Color.BLACK);
         main.drawImage(img, (main.getWidth() - img.getWidth()) / 2, 90);
         // draw separator lines on the background
         main.setColor(Color.YELLOW);
@@ -91,9 +92,9 @@ public class Instructions extends World
         main.setColor(Color.BLACK);
         main.fill(); // set a flat black background
         // create images and draw them on the background
-        GreenfootImage img = new GreenfootImage("INFORMATION", 36, Color.YELLOW, Color.BLACK);
+        GreenfootImage img = new GreenfootImage("INFORMACION", 36, Color.YELLOW, Color.BLACK);
         main.drawImage(img, (main.getWidth() - img.getWidth()) / 2, 50);
-        img = new GreenfootImage("(you are now in InfoWorld)", 18, Color.YELLOW, Color.BLACK);
+        img = new GreenfootImage("(Estos son los controles)", 18, Color.YELLOW, Color.BLACK);
         main.drawImage(img, (main.getWidth() - img.getWidth()) / 2, 90);
         // draw separator lines on the background
         main.setColor(Color.YELLOW);
@@ -101,8 +102,7 @@ public class Instructions extends World
         main.drawLine(0, 420, 720, 420);
         setBackground(main); // set the background image
     }
-    private void setMainImage3()//Prepara la pantalla(dar color de fondo, dar color a las letras, hacer que cubra la pantalla el menu,da estilo)
-      //, ademas de poner un encabezado con algo de texto
+    private void setMainImage3()
     {
        // Greenfoot.start();
         // create the image for the background
@@ -131,7 +131,7 @@ public class Instructions extends World
         main.drawLine(0, 420, 720, 420);
         setBackground(main); // set the background image
     }
-    private void imageOne()
+    private void imageOne()//Todos los image ingresan el resto de texto que llevara el menu en diferentes posiciones e inicializan la musica
     {
         // retrieve the background image
         // retrieve the background image
@@ -164,11 +164,12 @@ public class Instructions extends World
         img = new GreenfootImage("Haz click donde sea para inciar el juego", 18, Color.YELLOW, Color.BLACK);
         main.drawImage(img, (main.getWidth() - img.getWidth()) / 2, 470);
     }
-    private void imageFinal()//ingresa el resto de texto que llevara el menu en diferentes posiciones
+    private void imageFinal()
     {
         // retrieve the background image
         // retrieve the background image
         GreenfootImage main = getBackground();
+        this.finalMusic.play();
         // create text images and draw them on the background
         
         GreenfootImage img = new GreenfootImage("Si quieres regresar al infierno", 18, Color.YELLOW, Color.BLACK);
@@ -180,10 +181,14 @@ public class Instructions extends World
         img = new GreenfootImage("Presiona Enter", 18, Color.YELLOW, Color.BLACK);
         main.drawImage(img, (main.getWidth() - img.getWidth()) / 2, 530);
     }
-    public void act()
+    public void act()//verifica que si hay un click el menu haga una transicion hacia el juego como tal
+    //y si ingresa enter el juego finalizara
     {
-        if (Greenfoot.mouseClicked(null) && cont == 0){
+       if (Greenfoot.mouseClicked(null) && cont == 0){
            cont++;
+            if(this.initialMusic.isPlaying()){
+                this.initialMusic.stop();    
+            }
            Greenfoot.setWorld(toWorld);
         }
           if (Greenfoot.mouseClicked(null) && cont != 0){
@@ -195,6 +200,9 @@ public class Instructions extends World
            Greenfoot.setWorld(new MyWorld());
         }
         if(Greenfoot.isKeyDown("enter")){
+             if(this.finalMusic.isPlaying()){
+                this.finalMusic.stop();    
+            }
             Greenfoot.stop();
         }
     }

@@ -20,6 +20,15 @@ import greenfoot.*;
 * It is the responsibility of the World object that creates a Scroller object to determine when
 * to scroll and by how much.
 */
+/**
+* Clase Scroller mueve el fondo del mundo(el codigo no es nuestro)
+* @author Valeria,Diego y Angel
+* @version Final
+*/
+//el codigo no es nuestro pero el funcionamiento de la clase es el siguiente, se recibe el mundo donde se hara el scroller, la imagen
+//que sera afectada por el scroller y se prepara para que sea infinito, despues el metodo scroll sera llamado desde el mundo para que 
+//se produzca el movivimiento que se logra constantemente actualizando la posicion de x y y , ademas de actualizar la posicion
+//de los actores en pantalla
 public class Scroller
 {
     private World world; // view window world

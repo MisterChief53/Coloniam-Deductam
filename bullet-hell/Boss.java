@@ -3,11 +3,10 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * Write a description of class Boss here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+* Clase Boss instancia a los jefes con barra de salud visible
+* @author Valeria,Diego y Angel
+* @version Final
+*/
 public class Boss extends Enemy
 {
     /**

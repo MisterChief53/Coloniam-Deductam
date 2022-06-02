@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 
 /**
-* Write a description of class Enemy here.
-*
-* @author (your name)
-* @version (a version number or a date)
+* clase Enemy instancia a los enemigos que funcionaran de manera diferente
+* @author Valeria,Diego y Angel
+* @version Final
 */
 public class Enemy extends Entity
 {
@@ -22,14 +21,15 @@ public class Enemy extends Entity
     private int health;
     private GreenfootImage staticSprite;
     private GifImage animatedSprite;
-    public Enemy(char direction, int speed, String sprite, String spriteType)
+    public Enemy(char direction, int speed, String sprite, String spriteType)//el metodo asigna, el sprite,direccion,velocidad
     {
         super(sprite, spriteType);
         this.direction = direction;
         this.speed = speed;
         this.health = 100;
     }
-    public Enemy(char direction, int speed, String sprite, String spriteType, int health){
+    public Enemy(char direction, int speed, String sprite, String spriteType, int health){//el metodo asigna, el sprite,direccion,velocidad y salud  a un enemigo
+ 
         super(sprite, spriteType);
         this.direction = direction;
         this.speed = speed;
@@ -39,9 +39,9 @@ public class Enemy extends Entity
     {
         movement();
         checkCollisions();
-        super.applySprite();
+        super.applySprite();//aplica el sprite dado
     }
-    public void movement()
+    public void movement()//hace el movimiento asignado en myWorld, con direction
     {
         move(0,-3);
         switch(this.direction)
@@ -83,7 +83,7 @@ public class Enemy extends Entity
         }
     }
 
-    public void checkCollisions()
+    public void checkCollisions()//revisa que ningun proyectil del jugador lo toque si es asi lo elimina o verifica si esta fuera de pantalla para eliminarlo
     {
         World w = getWorld();
         MyWorld w1=(MyWorld)getWorld();
