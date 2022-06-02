@@ -20,9 +20,11 @@ public class Boss extends Enemy
     public Boss(char direction, int speed, String sprite, String spriteType, String sound){
         super(direction, speed, sprite, spriteType, 2000);
         this.w = getWorldOfType(MyWorld.class);
+        //Se colectan los sprites de la barra de vida.
         for(int i = 0; i < 14; i++){
             this.barArray[i] = new HealthBar("health" + (i+1) + ".png");
         }
+        //Cada boss tiene su musica especifica.
         this.bossMusic = new GreenfootSound(sound);
         this.bossMusic.setVolume(15);
     }
@@ -38,6 +40,7 @@ public class Boss extends Enemy
         checkCollisions();
         super.applySprite();
     }
+    //La diferencia con el que hereda es que tambien se remueve la barra de vida
     @Override
     public void checkCollisions()
     {
@@ -68,6 +71,8 @@ public class Boss extends Enemy
             w.removeObject(this);
         }
     }
+    //Metodo horrible, con hardcoding, y mal hecho. Cambia barra de vida dependiendo
+    //de la vida que tenga el boss. Los bosses tienen vida de 2000. 
     public void HealthBar(){
         if(getWorld() != null){
             if(super.getHealth() == 2000){

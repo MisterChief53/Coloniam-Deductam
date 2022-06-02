@@ -258,7 +258,7 @@ public class MyWorld extends World
         this.level3Music.setVolume(20);
        
         //World world=new ScrollingWorld();
-        
+        //Se inicializan las imagenes de dialogos
         for(int i = 0; i <13; i++){
             dialogueArray[i] = new Dialogue("dialogue" + (i+1) + ".png");
         }
@@ -512,7 +512,10 @@ public class MyWorld extends World
         this.speed=3;
         scroller.scroll(0,-speed);
     }
-
+    //Act se usa con un counter para poder hacer las animaciones. Todo lo que sucede
+    //va en relacion a este counter, y las batallas de los jefes terminan freezeando el 
+    //uso de este counter y usan su propio counter, para poder tener variacion en la 
+    //velocidad en la que se matan a estos jefes
     public void act()
     {
         if (!infoShown){
@@ -534,7 +537,7 @@ public class MyWorld extends World
             //this.addObject(new HealthBar("health1.png"), 100, 500);
             this.addObject(enemy1Gun1, 100,50);
         }
-
+        //Tambien se checa que el enemigo no haya muerto para no crashear
         if(counter == 510 && enemy1.getWorld() != null){
             this.enemy1.setDirection('R');
         }
@@ -688,6 +691,7 @@ public class MyWorld extends World
             this.enemy12.setDirection('R');
             this.enemy13.setDirection('L');
         }
+        //Una invocacion de un dialogo
         if(counter == 2300){
             this.addObject(dialogueArray[1], 300, this.HEIGHT - 97);
         }
@@ -716,6 +720,7 @@ public class MyWorld extends World
             this.addObject(this.boss1Gun4, 300,50);
             this.addObject(this.boss1Gun5, 300,50);
         }
+        //Se inicia un bloque de pelea de jefe
         if(counter >= 3501 && counter <= 4000 && boss1.getWorld() != null){
             if(boss1Counter <= 1000){
                 if(this.boss1.getX() >= this.WIDTH - 10 || this.boss1.getX() >= 300){
@@ -751,6 +756,7 @@ public class MyWorld extends World
         if(counter == 4000){
             this.removeObject(dialogueArray[4]);
         }
+        //Se cambia de nivel y se reinician las vidas y las bombas
         if(counter >= 4000 && counter < 4100){
             this.addObject(blankScreen, 300, 302);
             this.bombas.setCont(5);

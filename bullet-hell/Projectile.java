@@ -24,12 +24,14 @@ public class Projectile extends Actor
         this.direction = direction;
         this.speed = speed;
         this.projectileType = proyectileType;
+        //dependiendo del tipo de proyectil se usa diferente sprite.
         if(this.projectileType == 0){
             this.sprite = new GreenfootImage("playerBullet.png");
         }else{
             this.sprite = new GreenfootImage("enemyBullet.rotated.png");
         }
     }
+    //Se deciden la direccion del proyectil. Muy basico. 
     public void movement()
     {
         if(this.direction == 0){
@@ -71,7 +73,7 @@ public class Projectile extends Actor
     {
         return x + y;
     }
-
+    //Si el proyectil sale de un cierto rango de la pantalla, se elimina.
     public void checkRemove()
     {
         World w = getWorld();

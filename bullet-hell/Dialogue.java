@@ -13,6 +13,7 @@ public class Dialogue extends Actor
      * Act - do whatever the Dialogue wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    //Imagen del dialogo
     public Dialogue(String fileName){
         this.dialogueImage = new GreenfootImage(fileName);
     }

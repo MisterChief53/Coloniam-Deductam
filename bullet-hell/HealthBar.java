@@ -13,11 +13,11 @@ public class HealthBar extends Actor
      * Act - do whatever the HealthBar wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    //El nombre de la imagen se consigue para asignarla
     public HealthBar(String fileName){
         image = new GreenfootImage(fileName);
-        //image.rotate(90);
-        //image.scale(image.getWidth()/2, 20/*image.getHeight()/2*/);
     }
+    //Se mueve junto con el escenario
     public void act()
     {
         setImage(image);
