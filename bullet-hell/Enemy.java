@@ -65,8 +65,11 @@ public class Enemy extends Entity
     {
         this.direction = direction;
     }
+    public char getDirection(){
+        return this.direction;
+    }
 
-    public void setSpeed(char speed)
+    public void setSpeed(int speed)
     {
         this.speed = speed;
     }

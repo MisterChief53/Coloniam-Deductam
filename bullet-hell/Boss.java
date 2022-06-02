@@ -17,13 +17,13 @@ public class Boss extends Enemy
     private HealthBar[] barArray = new HealthBar[14];
     private MyWorld w;
     private GreenfootSound bossMusic;
-    public Boss(char direction, int speed, String sprite, String spriteType){
+    public Boss(char direction, int speed, String sprite, String spriteType, String sound){
         super(direction, speed, sprite, spriteType, 2000);
         this.w = getWorldOfType(MyWorld.class);
         for(int i = 0; i < 14; i++){
             this.barArray[i] = new HealthBar("health" + (i+1) + ".png");
         }
-        this.bossMusic = new GreenfootSound("dubstep.mp3");
+        this.bossMusic = new GreenfootSound(sound);
         this.bossMusic.setVolume(15);
     }
     public void act()
